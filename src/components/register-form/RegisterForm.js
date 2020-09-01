@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/auth";
+import { actions } from "../../redux/actions/register";
 import { Loader } from "../loader";
-import "./LoginForm.css";
-import { Link } from "react-router-dom";
+import "./RegisterForm.css";
 
-export const LoginForm = ({ login }) => {
+export const RegisterForm = ({ register }) => {
   const { loading, error } = useSelector((state) => ({
     loading: state.auth.loading,
     error: state.auth.error,
@@ -15,31 +14,45 @@ export const LoginForm = ({ login }) => {
 
   const [state, setState] = useState({
     username: "",
+    displayName: "",
     password: "",
   });
 
-  const handleLogin = (event) => {
-    console.log(event);
+  const handleRegister = (event) => {
     event.preventDefault();
-    dispatch(actions.login(state));
+    dispatch(actions.register(state));
   };
 
   const handleChange = (event) => {
+    console.log(event);
     const inputName = event.target.name;
     const inputValue = event.target.value;
-    setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
+    // const displayName = event.target.name;
+    setState((prevState) => ({
+      ...prevState,
+      [inputName]: inputValue,
+    }));
   };
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
+      <form id="register-form" onSubmit={handleRegister}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
-          placeholder="Usename"
+          placeholder="Username"
           value={state.username}
           autoFocus
+          required
+          onChange={handleChange}
+        />
+        <label htmlFor="displayName">Display Name</label>
+        <input
+          type="text"
+          name="displayName"
+          placeholder="Display Name"
+          value={state.displayName}
           required
           onChange={handleChange}
         />
@@ -53,9 +66,8 @@ export const LoginForm = ({ login }) => {
           onChange={handleChange}
         />
         <button type="submit" disabled={loading}>
-          Login
+          Register
         </button>
-        <Link to="/:register">Register</Link>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

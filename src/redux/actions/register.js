@@ -1,27 +1,28 @@
 import api from "../../utils/api";
 
 // AUTH CONSTANTS
-export const LOGIN = "AUTH/LOGIN";
-export const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS";
-export const LOGIN_FAILURE = "AUTH/LOGIN_FAILURE";
-export const LOGOUT = "AUTH/LOGOUT";
+export const REGISTER = "REGISTER";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const LOGOUT = "LOGOUT";
 
 /*
  AUTH ACTIONS (this is a thunk....)
  THUNKS: --> https://github.com/reduxjs/redux-thunk#whats-a-thunk
  If you need access to your store you may call getState()
 */
-const login = (credentials) => async (dispatch, getState) => {
+const register = (credentials) => async (dispatch, getState) => {
+  console.log(credentials);
   try {
-    dispatch({ type: LOGIN });
-    const payload = await api.login(credentials);
+    dispatch({ type: REGISTER });
+    const payload = await api.register(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     // console.log({ result })
 
-    dispatch({ type: LOGIN_SUCCESS, payload });
+    dispatch({ type: REGISTER_SUCCESS, payload });
   } catch (err) {
     dispatch({
-      type: LOGIN_FAILURE,
+      type: REGISTER_FAILURE,
       payload: err.message,
     });
   }
@@ -42,6 +43,6 @@ const logout = () => async (dispatch, getState) => {
 // END AUTH ACTIONS
 
 export const actions = {
-  login,
+  register,
   logout,
 };
