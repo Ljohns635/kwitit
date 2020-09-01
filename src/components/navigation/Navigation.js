@@ -14,6 +14,12 @@ export const Navigation = () => (
       />
       <ConnectedRoute
         exact
+        path="/:register"
+        redirectIfAuthenticated
+        component={HomeScreen}
+      />
+      <ConnectedRoute
+        exact
         isProtected
         path="/profiles/:username"
         component={ProfileScreen}

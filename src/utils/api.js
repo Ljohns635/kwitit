@@ -56,6 +56,20 @@ class API {
       throw err;
     }
   }
+
+  async register({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users", {
+        username,
+        displayName,
+        password,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
