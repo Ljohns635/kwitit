@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Navigation } from "./components";
 import configureStore from "./redux/configureStore";
-
+//Ask akil if this merge shows up
 const { store, persistor } = configureStore();
 
 const KWITTER = {
