@@ -11,6 +11,7 @@ import {
 const INITIAL_STATE = {
   list: [],
   messageId: "",
+  text: "",
   loading: false,
   error: "",
 };
@@ -50,6 +51,12 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         ...state,
         error: action.payload,
         loading: false,
+      };
+    case CREATE_MESSAGE:
+      return {
+        ...state,
+        text: action.payload,
+        loading: true,
       };
     default:
       return state;
