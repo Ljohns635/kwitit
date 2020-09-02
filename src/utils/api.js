@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import { getMessageList } from "../redux/actions/messages";
+// that
 class API {
   axiosInstance = null;
 
@@ -57,6 +58,24 @@ class API {
     }
   }
 
+  async getMessageList() {
+    try {
+      const result = await this.axiosInstance.get(
+        "messages?limit=100&offset=0"
+      );
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+  async getUser() {
+    try {
+      const result = await this.axiosInstance.get("/users/{username}");
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+
+
   async register({ username, displayName, password }) {
     try {
       const result = await this.axiosInstance.post("/users", {
@@ -92,6 +111,7 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
       throw err;
+
     }
   }
 }

@@ -1,5 +1,5 @@
 import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
-
+// this is coment
 // INITIAL STATE
 const INITIAL_STATE = {
   isAuthenticated: "",
