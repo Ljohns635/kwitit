@@ -70,6 +70,18 @@ class API {
       throw err;
     }
   }
+
+  async getMessages({ messageId }) {
+    try {
+      const result = await this.axiosInstance.get("/messages/{messageId}", {
+        messageId,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 // async likes({ messageId }) {
