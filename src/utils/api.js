@@ -70,9 +70,20 @@ class API {
       throw err;
     }
   }
-  async createMessage({ text }) {
+  async getMessages({ messageId }) {
     try {
-      const result = await this.axiosInstance.post("/users", {
+      const result = await this.axiosInstance.get("/messages/{messageId}", {
+        messageId,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  async createMessages({ text }) {
+    try {
+      const result = await this.axiosInstance.post("/messages", {
         text,
       });
       return result;
