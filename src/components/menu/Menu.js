@@ -10,7 +10,7 @@ export const Menu = () => {
   const logout = () => dispatch(actions.logout());
   return (
     <div id="menu">
-      <h1>Kwitter</h1>
+      <h1>KwitIt!</h1>
       <div id="menu-links">
         {isAuthenticated ? (
           <>

@@ -57,6 +57,7 @@ class API {
       throw err;
     }
   }
+
   async getMessageList() {
     try {
       const result = await this.axiosInstance.get(
@@ -73,9 +74,73 @@ class API {
       return result;
     } catch (err) {
       helpMeInstructor(err);
+
+
+  async register({ username, displayName, password }) {
+    try {
+      const result = await this.axiosInstance.post("/users", {
+        username,
+        displayName,
+        password,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async getMessages({ messageId }) {
+    try {
+      const result = await this.axiosInstance.get("/messages/{messageId}", {
+        messageId,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  
+  async createMessages({ text }) {
+    try {
+      const result = await this.axiosInstance.post("/messages", {
+        text,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+
     }
   }
 }
+
+// async likes({ messageId }) {
+//   try {
+//     const result = await this.axiosInstance.post("/likes", {
+//       messageId
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
+// async unLikes({ id, statusCode }) {
+//   try {
+//     const result = await this.axiosInstance.delete("/likes/{likeId}", {
+//       id,
+//       statusCode
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
+// import { Link } from "react-router-dom";
 
 export const LoginForm = ({ login }) => {
   const { loading, error } = useSelector((state) => ({
@@ -18,6 +19,7 @@ export const LoginForm = ({ login }) => {
   });
 
   const handleLogin = (event) => {
+    console.log(event);
     event.preventDefault();
     dispatch(actions.login(state));
   };
@@ -35,6 +37,7 @@ export const LoginForm = ({ login }) => {
         <input
           type="text"
           name="username"
+          placeholder="Usename"
           value={state.username}
           autoFocus
           required
@@ -44,6 +47,7 @@ export const LoginForm = ({ login }) => {
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={state.password}
           required
           onChange={handleChange}
@@ -51,6 +55,7 @@ export const LoginForm = ({ login }) => {
         <button type="submit" disabled={loading}>
           Login
         </button>
+        {/* <Link to="/">Register</Link> */}
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
