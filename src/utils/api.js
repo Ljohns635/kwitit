@@ -82,6 +82,18 @@ class API {
       throw err;
     }
   }
+  
+  async createMessages({ text }) {
+    try {
+      const result = await this.axiosInstance.post("/messages", {
+        text,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 // async likes({ messageId }) {
