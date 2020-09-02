@@ -70,6 +70,17 @@ class API {
       throw err;
     }
   }
+  async createMessage({ text }) {
+    try {
+      const result = await this.axiosInstance.post("/users", {
+        text,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]

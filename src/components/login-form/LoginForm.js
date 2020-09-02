@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const LoginForm = ({ login }) => {
   const { loading, error } = useSelector((state) => ({
@@ -55,7 +55,7 @@ export const LoginForm = ({ login }) => {
         <button type="submit" disabled={loading}>
           Login
         </button>
-        <Link to="/:register">Register</Link>
+        {/* <Link to="/">Register</Link> */}
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
