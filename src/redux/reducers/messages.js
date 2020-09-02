@@ -58,6 +58,12 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         text: action.payload,
         loading: true,
       };
+    case CREATE_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        text: action.payload.text,
+        loading: false,
+      };
     default:
       return state;
   }
