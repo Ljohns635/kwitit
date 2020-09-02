@@ -7,6 +7,7 @@ import {
 
 const INITIAL_STATE = {
   list: [],
+  messageId: "",
   loading: false,
   error: "",
 };
@@ -29,6 +30,13 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
         loading: false,
       };
+    case GET_MESSAGE:
+      return {
+        ...state,
+        messageId,
+        loading: true,
+      };
+
     default:
       return state;
   }
