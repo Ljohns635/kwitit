@@ -42,6 +42,12 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         messageId: action.payload.messagesId,
         loading: false,
       };
+    case GET_MESSAGE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
     default:
       return state;
   }
