@@ -64,6 +64,12 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         text: action.payload.text,
         loading: false,
       };
+    case CREATE_MESSAGE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
     default:
       return state;
   }
