@@ -70,10 +70,11 @@ class API {
       throw err;
     }
   }
-  async createMessage({ text }) {
+
+  async getMessages({ messageId }) {
     try {
-      const result = await this.axiosInstance.post("/users", {
-        text,
+      const result = await this.axiosInstance.get("/messages/{messageId}", {
+        messageId,
       });
       return result;
     } catch (err) {
@@ -82,6 +83,32 @@ class API {
     }
   }
 }
+
+// async likes({ messageId }) {
+//   try {
+//     const result = await this.axiosInstance.post("/likes", {
+//       messageId
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
+// async unLikes({ id, statusCode }) {
+//   try {
+//     const result = await this.axiosInstance.delete("/likes/{likeId}", {
+//       id,
+//       statusCode
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
