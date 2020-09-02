@@ -3,6 +3,9 @@ import {
   GETMESSAGELIST_START,
   GETMESSAGELIST_SUCCESS,
   GETMESSAGELIST_FAILOR,
+  GET_MESSAGE,
+  GET_MESSAGE_FAILURE,
+  GET_MESSAGE_SUCCESS,
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -52,4 +55,3 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-// this
