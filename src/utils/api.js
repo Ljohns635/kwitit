@@ -63,7 +63,7 @@ class API {
       const result = await this.axiosInstance.get("/messages");
 
         
-      );
+      
 
       return result;
     } catch (err) {
