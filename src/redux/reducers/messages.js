@@ -79,6 +79,13 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         messageId: action.payload,
         loading: true,
       };
+    case DELETE_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        message: action.payload.messageId,
+        loading: false,
+      };
+
     default:
       return state;
   }
