@@ -59,12 +59,13 @@ class API {
 
   async getMessageList() {
     try {
-      const result = await this.axiosInstance.get(
-        "messages?limit=100&offset=0"
-      );
+      const result = await this.axiosInstance.get("/messages");
+
+
       return result;
     } catch (err) {
       helpMeInstructor(err);
+      throw err;
     }
   }
   async getUser({ username }) {
@@ -102,6 +103,7 @@ class API {
   }
 
   async createMessages({ text }) {
+    console.log(text);
     try {
       const result = await this.axiosInstance.post("/messages", {
         text,
@@ -110,22 +112,16 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
       throw err;
-
     }
   }
 
   async deleteUser({ username }) {
     try {
-      const result = await this.axiosInstance.delete(
-        `/users/${username}`,
-        {}
-      );
+      const result = await this.axiosInstance.delete(`/users/${username}`, {});
       return result;
     } catch (err) {
       helpMeInstructor(err);
       throw err;
-
-
     }
   }
   async deleteMessages({ messageId }) {
@@ -141,71 +137,55 @@ class API {
     }
   }
 
-//Akil recieved help from Marcell
-async likes({ messageId }) {
-  try {
-    const result = await this.axiosInstance.post("/likes", {
-      messageId
-    });
-    return result;
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
+  //Akil recieved help from Marcell
+  async likes({ messageId }) {
+    try {
+      const result = await this.axiosInstance.post("/likes", {
+        messageId,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
   }
-}
 
+  async unLikes({ likeId }) {
+    try {
+      const result = await this.axiosInstance.delete(`/likes/${likeId}`);
 
-async unLikes({ likeId }) {
-  try {
-    const result = await this.axiosInstance.delete(`/likes/${likeId}`);      
-    
-    return result;
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
   }
-}
 
-// async likes({ messageId }) {
-//   try {
-//     const result = await this.axiosInstance.post("/likes", {
-//       messageId
-//     });
-//     return result;
-//   } catch (err) {
-//     helpMeInstructor(err);
-//     throw err;
-//   }
-// }
-
-// async unLikes({ id, statusCode }) {
-//   try {
-//     const result = await this.axiosInstance.delete("/likes/{likeId}", {
-//       id,
-//       statusCode
-//     });
-//     return result;
-//   } catch (err) {
-//     helpMeInstructor(err);
-//     throw err;
-//   }
-// }
+<<<<<<< HEAD
 
 
 
 async userList() {
   try {
-    const result = await this.axiosInstance.get("/users",);      
+    const result = await this.axiosInstance.get("/users");      
     
     return result;
   } catch (err) {
     helpMeInstructor(err);
     throw err;
+=======
+  async userList() {
+    try {
+      const result = await this.axiosInstance.get("/users");
+>>>>>>> 6e7e958d2427b59e74e274609602ccf812bbdd1e
 
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
 }
-}
-}
-
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
