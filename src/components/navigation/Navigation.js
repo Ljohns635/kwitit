@@ -5,6 +5,7 @@ import {
   ProfileScreen,
   NotFoundScreen,
   MessageFeed,
+  RegisterScreen,
 } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 
@@ -17,6 +18,7 @@ export const Navigation = () => (
         redirectIfAuthenticated
         component={HomeScreen}
       />
+      {/* <ConnectedRoute exact path="/:register" component={RegisterScreen} /> */}
       <ConnectedRoute
         exact
         isProtected
