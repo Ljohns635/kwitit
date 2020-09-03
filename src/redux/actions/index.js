@@ -4,3 +4,4 @@ export * from "./messages";
 
 export * from "./register";
 
+export * from "./likes";
