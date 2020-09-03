@@ -7,3 +7,5 @@ export * from "./register";
 export * from "./getmessages";
 
 export * from "./createMessages";
+
+export * from "./deleteMessages";
