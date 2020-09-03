@@ -64,6 +64,7 @@ class API {
       return result;
     } catch (err) {
       helpMeInstructor(err);
+      throw err;
     }
   }
   async getUser({ username }) {
