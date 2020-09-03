@@ -9,6 +9,9 @@ import {
   CREATE_MESSAGE,
   CREATE_MESSAGE_SUCCESS,
   CREATE_MESSAGE_FAILURE,
+  DELETE_MESSAGE,
+  DELETE_MESSAGE_SUCCESS,
+  DELETE_MESSAGE_FAILURE,
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -68,6 +71,24 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         loading: false,
       };
     case CREATE_MESSAGE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        messageId: action.payload,
+        loading: true,
+      };
+    case DELETE_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        message: action.payload.messageId,
+        loading: false,
+      };
+    case DELETE_MESSAGE_FAILURE:
       return {
         ...state,
         error: action.payload,
