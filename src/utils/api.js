@@ -170,36 +170,12 @@ async unLikes({ likeId }) {
   }
 }
 
-// async likes({ messageId }) {
-//   try {
-//     const result = await this.axiosInstance.post("/likes", {
-//       messageId
-//     });
-//     return result;
-//   } catch (err) {
-//     helpMeInstructor(err);
-//     throw err;
-//   }
-// }
-
-// async unLikes({ id, statusCode }) {
-//   try {
-//     const result = await this.axiosInstance.delete("/likes/{likeId}", {
-//       id,
-//       statusCode
-//     });
-//     return result;
-//   } catch (err) {
-//     helpMeInstructor(err);
-//     throw err;
-//   }
-// }
 
 
 
 async userList() {
   try {
-    const result = await this.axiosInstance.get("/users",);      
+    const result = await this.axiosInstance.get("/users");      
     
     return result;
   } catch (err) {
