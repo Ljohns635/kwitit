@@ -16,23 +16,23 @@ export const GetMessages = () => {
     messagesId: "",
   });
 
-  return (
-    <ReactFragment>
-      <ul className="list-unstyled">
-        <Media as="li">
-          <img
-            width={64}
-            height={64}
-            className="mr-3"
-            src="holder.js/64x64"
-            alt="Generic placeholder"
-          />
-          <Media.Body>
-            <h5>List-based media object</h5>
-            <p>Change to messages</p>
-          </Media.Body>
-        </Media>
-      </ul>
-    </ReactFragment>
-  );
+  // return (
+  //   <ReactFragment>
+  //     <ul className="list-unstyled">
+  //       <Media as="li">
+  //         <img
+  //           width={64}
+  //           height={64}
+  //           className="mr-3"
+  //           src="holder.js/64x64"
+  //           alt="Generic placeholder"
+  //         />
+  //         <Media.Body>
+  //           <h5>List-based media object</h5>
+  //           <p>Change to messages</p>
+  //         </Media.Body>
+  //       </Media>
+  //     </ul>
+  //   </ReactFragment>
+  // );
 };
