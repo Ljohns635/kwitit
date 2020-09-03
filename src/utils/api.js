@@ -74,10 +74,9 @@ class API {
       return result;
     } catch (err) {
       helpMeInstructor(err);
-
+      throw err;
     }
   }
-
 
   async register({ username, displayName, password }) {
     try {
@@ -104,7 +103,7 @@ class API {
       throw err;
     }
   }
-  
+
   async createMessages({ text }) {
     try {
       const result = await this.axiosInstance.post("/messages", {
@@ -114,7 +113,17 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
       throw err;
-
+    }
+  }
+  async deleteMessages({ messageId }) {
+    try {
+      const result = await this.axiosInstance.delete("/messages/{messageId}", {
+        messageId,
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
     }
   }
 
@@ -155,7 +164,6 @@ async userList() {
 }
 }
 }
-
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
