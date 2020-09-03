@@ -1,26 +1,25 @@
-// TODO: implement
-import { LIKE, LIKE_SUCCESS, LIKE_FAILURE } from "../actions";
+import { USERLIST, USERLIST_SUCCESS, USERLIST_FAILURE } from "../actions";
 
 const INITIAL_STATE = {
-    like: {},
+    unlike: {},
     loading: false,
     error: "",
   };
   
   export const authReducer = (state = { ...INITIAL_STATE }, action) => {
     switch (action.type) {
-      case LIKE:
+      case USERLIST:
         return {
           ...INITIAL_STATE,
           loading: true,
         };  
-        case LIKE_SUCCESS:      
+        case USERLIST_SUCCESS:      
       return {
         ...INITIAL_STATE,
-        like: action.payload,        
+        USERLIST: action.payload,        
         loading: false,
       }; 
-      case LIKE_FAILURE:
+      case USERLIST_FAILURE:
       return {
         ...INITIAL_STATE,
         error: action.payload,
