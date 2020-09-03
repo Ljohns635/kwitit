@@ -31,10 +31,6 @@ const CreateMessages = () => {
 
   return (
     <React.Fragment>
-      {/* <form id="message-box">
-        <textarea />
-        <button>Send</button>
-      </form> */}
       <Form>
         <Form.Group controlId="message-box">
           <Form.Label>Send Message</Form.Label>
@@ -43,7 +39,6 @@ const CreateMessages = () => {
             as="textarea"
             rows="3"
             name="text"
-            // onChange={this.handleInputChange}
           />
         </Form.Group>
         <Button variant="secondary" size="lg" block onClick={handleSend}>
