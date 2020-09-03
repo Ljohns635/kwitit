@@ -1,4 +1,11 @@
-import { REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE } from "../actions";
+import {
+  REGISTER,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
+  DELETE_USER,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
+} from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
@@ -31,6 +38,43 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         error: action.payload,
         loading: false,
       };
+    case DELETE_USER:
+      return {
+        ...INITIAL_STATE,
+        username: action.payload,
+        loading: true,
+      };
+    case DELETE_USER_SUCCESS:
+      return {
+        ...INITIAL_STATE,
+        username: action.payload.username,
+        loading: false,
+      };
+    case DELETE_USER_FAILURE:
+      return {
+        ...INITIAL_STATE,
+        error: action.payload,
+        loading: false,
+      };
+    case GET_USER:
+      return {
+        ...INITIAL_STATE,
+        username: action.payload,
+        loading: true,
+      };
+    case GET_USER_SUCCESS:
+      return {
+        ...INITIAL_STATE,
+        username: action.payload.username,
+        loading: false,
+      };
+    case GET_USER_FAILURE:
+      return {
+        ...INITIAL_STATE,
+        error: action.payload,
+        loading: false,
+      };
+
     default:
       return state;
   }

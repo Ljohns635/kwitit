@@ -31,4 +31,3 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
       };
   }
 };
-// this

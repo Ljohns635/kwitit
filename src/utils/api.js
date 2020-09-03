@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getMessageList } from "../redux/actions/messages";
-// that
+
 class API {
   axiosInstance = null;
 
@@ -74,7 +74,9 @@ class API {
       return result;
     } catch (err) {
       helpMeInstructor(err);
-
+      throw err;
+    }
+  }
 
   async register({ username, displayName, password }) {
     try {
@@ -101,7 +103,7 @@ class API {
       throw err;
     }
   }
-  
+
   async createMessages({ text }) {
     try {
       const result = await this.axiosInstance.post("/messages", {
@@ -111,7 +113,42 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
       throw err;
-
+    }
+  }
+  async ({ text }) {
+    try {
+      const result = await this.axiosInstance.post(
+        "",
+        {
+          text,
+        }
+      );
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  async deleteUser({ username }) {
+    try {
+      const result = await this.axiosInstance.delete("/users/`${username}`", {
+        
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+  async getuser({ username }) {
+    try {
+      const result = await this.axiosInstance.get("/users/`${username}`", {
+        
+      });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
     }
   }
 }
@@ -140,7 +177,6 @@ class API {
 //     throw err;
 //   }
 // }
-
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
