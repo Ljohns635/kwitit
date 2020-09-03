@@ -3,10 +3,14 @@ import {
   GETMESSAGELIST_START,
   GETMESSAGELIST_SUCCESS,
   GETMESSAGELIST_FAILOR,
+  GET_MESSAGE,
+  GET_MESSAGE_FAILURE,
+  GET_MESSAGE_SUCCESS,
 } from "../actions";
 
 const INITIAL_STATE = {
   list: [],
+  messageId: "",
   loading: false,
   error: "",
 };
@@ -29,6 +33,25 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
         loading: false,
       };
+    case GET_MESSAGE:
+      return {
+        ...state,
+        messageId,
+        loading: true,
+      };
+    case GET_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        messageId: action.payload.messagesId,
+        loading: false,
+      };
+    case GET_MESSAGE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
   }
 };
-// this
