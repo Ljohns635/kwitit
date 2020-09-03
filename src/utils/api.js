@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// that
 class API {
   axiosInstance = null;
 
@@ -68,9 +67,9 @@ class API {
       helpMeInstructor(err);
     }
   }
-  async getUser() {
+  async getUser({ username }) {
     try {
-      const result = await this.axiosInstance.get("/users/{username}");
+      const result = await this.axiosInstance.get(`/users/${username}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -111,6 +110,22 @@ class API {
     } catch (err) {
       helpMeInstructor(err);
       throw err;
+
+    }
+  }
+
+  async deleteUser({ username }) {
+    try {
+      const result = await this.axiosInstance.delete(
+        "/users/`${username}`",
+        {}
+      );
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+
+
     }
   }
   async deleteMessages({ messageId }) {
@@ -151,6 +166,33 @@ async unLikes({ likeId }) {
   }
 }
 
+// async likes({ messageId }) {
+//   try {
+//     const result = await this.axiosInstance.post("/likes", {
+//       messageId
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
+// async unLikes({ id, statusCode }) {
+//   try {
+//     const result = await this.axiosInstance.delete("/likes/{likeId}", {
+//       id,
+//       statusCode
+//     });
+//     return result;
+//   } catch (err) {
+//     helpMeInstructor(err);
+//     throw err;
+//   }
+// }
+
+
+
 async userList() {
   try {
     const result = await this.axiosInstance.get("/users",);      
@@ -163,6 +205,7 @@ async userList() {
 }
 }
 }
+
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
