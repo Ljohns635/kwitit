@@ -27,7 +27,6 @@ const CreateMessages = () => {
     // console.log(event);
     event.preventDefault();
     dispatch(createMessage(message));
-    event.target.value = "";
   };
 
   return (
