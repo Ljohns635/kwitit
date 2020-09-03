@@ -2,7 +2,7 @@ import React from "react";
 import {
   LoginFormContainer,
   MenuContainer,
-  RegisterContainer,
+  // RegisterContainer,
 } from "../components";
 
 export const HomeScreen = () => (
@@ -10,9 +10,9 @@ export const HomeScreen = () => (
     <MenuContainer />
     <h2>Your favorite microblogging platform</h2>
     <LoginFormContainer />
-    <br />
+    {/* <br />
     <hr />
     <br />
-    <RegisterContainer />
+    <RegisterContainer /> */}
   </>
 );
