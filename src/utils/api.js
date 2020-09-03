@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getMessageList } from "../redux/actions/messages";
+
 // that
 class API {
   axiosInstance = null;
