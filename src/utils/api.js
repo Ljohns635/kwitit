@@ -117,7 +117,7 @@ class API {
   async deleteUser({ username }) {
     try {
       const result = await this.axiosInstance.delete(
-        "/users/`${username}`",
+        `/users/${username}`,
         {}
       );
       return result;
