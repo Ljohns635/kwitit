@@ -61,6 +61,7 @@ class API {
     try {
       const result = await this.axiosInstance.get("/messages");
 
+
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -159,31 +160,6 @@ class API {
       throw err;
     }
   }
-
-  // async likes({ messageId }) {
-  //   try {
-  //     const result = await this.axiosInstance.post("/likes", {
-  //       messageId
-  //     });
-  //     return result;
-  //   } catch (err) {
-  //     helpMeInstructor(err);
-  //     throw err;
-  //   }
-  // }
-
-  // async unLikes({ id, statusCode }) {
-  //   try {
-  //     const result = await this.axiosInstance.delete("/likes/{likeId}", {
-  //       id,
-  //       statusCode
-  //     });
-  //     return result;
-  //   } catch (err) {
-  //     helpMeInstructor(err);
-  //     throw err;
-  //   }
-  // }
 
   async userList() {
     try {
