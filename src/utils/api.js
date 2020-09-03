@@ -59,9 +59,12 @@ class API {
 
   async getMessageList() {
     try {
-      const result = await this.axiosInstance.get("/messages"
+
+      const result = await this.axiosInstance.get("/messages");
+
         
       );
+
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -102,6 +105,7 @@ class API {
   }
 
   async createMessages({ text }) {
+    console.log(text);
     try {
       const result = await this.axiosInstance.post("/messages", {
         text,
