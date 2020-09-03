@@ -94,9 +94,7 @@ class API {
 
   async getMessages({ messageId }) {
     try {
-      const result = await this.axiosInstance.get("/messages/{messageId}", {
-        messageId,
-      });
+      const result = await this.axiosInstance.get(`/messages/${messageId}`, {});
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -117,9 +115,10 @@ class API {
   }
   async deleteMessages({ messageId }) {
     try {
-      const result = await this.axiosInstance.delete("/messages/{messageId}", {
-        messageId,
-      });
+      const result = await this.axiosInstance.delete(
+        `/messages/${messageId}`,
+        {}
+      );
       return result;
     } catch (err) {
       helpMeInstructor(err);
