@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/getmessages";
 import { Loader } from "../loader";
 import "./GetMessages.css";
 
 export const GetMessages = () => {
-  const { loading, error } = useSelector((state) => ({
+  const { loading, error, messages } = useSelector((state) => ({
     loading: state.auth.loading,
     error: state.auth.error,
+    messages: state.messages.list,
   }));
 
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
     messagesId: "",
+  });
+  useEffect(() => {
+    dispatch(getMessageList);
   });
 
   // return (
@@ -35,4 +39,11 @@ export const GetMessages = () => {
   //     </ul>
   //   </ReactFragment>
   // );
+  return (
+    <>
+      <h1>Messagelist</h1>
+      {messages &&
+        messages.map((message) => <p key={message.id}>{message.text}</p>)}
+    </>
+  );
 };
