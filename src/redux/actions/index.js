@@ -10,6 +10,10 @@ export * from "./getmessages";
 
 export * from "./createMessages";
 
+
+export * from "./deleteMessages";
+
 export * from "./likes";
+
 
 
