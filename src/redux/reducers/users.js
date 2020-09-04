@@ -8,10 +8,14 @@ import {
   GET_USER,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
+  USERLIST,
+  USERLIST_SUCCESS,
+  USERLIST_FAILURE,
 } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
+  userList: {},
   isAuthenticated: "",
   username: "",
   displayName: "",
@@ -72,6 +76,23 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         loading: false,
       };
     case GET_USER_FAILURE:
+      return {
+        ...INITIAL_STATE,
+        error: action.payload,
+        loading: false,
+      };
+    case USERLIST:
+      return {
+        ...INITIAL_STATE,
+        loading: true,
+      };
+    case USERLIST_SUCCESS:
+      return {
+        ...INITIAL_STATE,
+        USERLIST: action.payload,
+        loading: false,
+      };
+    case USERLIST_FAILURE:
       return {
         ...INITIAL_STATE,
         error: action.payload,
