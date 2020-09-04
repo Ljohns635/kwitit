@@ -83,10 +83,16 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
       };
     case USERLIST:
       return {
+        ...INITIAL_STATE,               
+        loading: true,
+      };
+      case USERLIST_SUCCESS:      
+      return {
         ...INITIAL_STATE,
         userList: action.payload.users,        
         loading: false,
-      };
+      }; 
+
     case USERLIST_FAILURE:
       return {
         ...INITIAL_STATE,
