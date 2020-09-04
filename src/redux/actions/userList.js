@@ -7,11 +7,11 @@ export const USERLIST_FAILURE = "USERLIST/USERLIST_FAILURE";
 
 
 
-export const userlist = (users) => async (dispatch, getState) => {
-  console.log(users)
+export const userlist = () => async (dispatch, getState) => {
+  console.log("action")
   try {
     dispatch({ type: USERLIST });
-    const payload = await api.userList(users);
+    const payload = await api.userList();
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     // console.log({ result })
 

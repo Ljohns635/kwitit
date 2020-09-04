@@ -162,6 +162,7 @@ class API {
 
   async userList() {
     try {
+      console.log("api");
       const result = await this.axiosInstance.get("/users");
 
       return result;
