@@ -1,31 +1,32 @@
- import React, { useState, useEffect } from 'react';
- import ListGroup from 'react-bootstrap/ListGroup';
- import { useSelector, useDispatch } from 'react-redux'
- import {userlist} from "../../redux/actions"
+import React, { useState, useEffect } from "react";
+import ListGroup from "react-bootstrap/ListGroup";
+import { useSelector, useDispatch } from "react-redux";
+import { userlist } from "../../redux/actions";
 
  export default function UserList() {
-     const userList = useSelector((state) => {
-         return state.userlist         
+   const dispatch = useDispatch()
+   useEffect(() => {
+     dispatch(userlist()) 
+     
+   }, [])
+     const userListState = useSelector((state) => ({
+          userList: state.users.userList,      
          
-     });
-     const dispatch = useDispatch()
-     useEffect(() => {
-       dispatch(userlist()) 
-     }, [])
-
+     }));
+     console.log(userListState)
      return (
      <ListGroup as="ul">
           <ListGroup.Item as="li" active>
             
-          {userList && userlist.map(user =><ListGroup.Item as="li" action>
-            {user.username}
+          {userListState.userList && userListState.userList.map(user =><ListGroup.Item as="li" action>
+            {user.username}<br/>
+            {console.log(user)}
+            created at:{user.createdAt}
             </ListGroup.Item>)}
           </ListGroup.Item>
             
         
     
     </ListGroup>
-          
-     )
-
-    }
+  );
+}

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
-import "./GetMessageList";
+import "./GetMessagesList";
 
-export const GetMessages = () => {
+export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
     loading: state.auth.loading,
     error: state.auth.error,
@@ -18,27 +18,8 @@ export const GetMessages = () => {
   });
   useEffect(() => {
     dispatch(getMessageList());
-  });
+  }, []);
 
-  // return (
-  //   <ReactFragment>
-  //     <ul className="list-unstyled">
-  //       <Media as="li">
-  //         <img
-  //           width={64}
-  //           height={64}
-  //           className="mr-3"
-  //           src="holder.js/64x64"
-  //           alt="Generic placeholder"
-  //         />
-  //         <Media.Body>
-  //           <h5>List-based media object</h5>
-  //           <p>Change to messages</p>
-  //         </Media.Body>
-  //       </Media>
-  //     </ul>
-  //   </ReactFragment>
-  // );
   return (
     <>
       <h1>Messagelist</h1>
