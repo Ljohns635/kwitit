@@ -8,8 +8,8 @@ import {
   GET_USER,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
-  USERLIST, 
-  USERLIST_SUCCESS, 
+  USERLIST,
+  USERLIST_SUCCESS,
   USERLIST_FAILURE,
 } from "../actions";
 
@@ -97,7 +97,6 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         ...INITIAL_STATE,
         error: action.payload,
         loading: false,
-      };   
       };
 
     default:

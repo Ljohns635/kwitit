@@ -2,6 +2,7 @@ import React from "react";
 import { MenuContainer } from "../components";
 import CreateMessages from "../components/create-messages/CreateMessages";
 import { Link } from "react-router-dom";
+import { GetMessageList } from "../components";
 
 export const MessageFeed = () => (
   <>
@@ -9,5 +10,8 @@ export const MessageFeed = () => (
     <Link to="/">Go Home</Link>
     <h2>Message Feed</h2>
     <CreateMessages />
+    <br />
+    <br />
+    <GetMessageList />
   </>
 );

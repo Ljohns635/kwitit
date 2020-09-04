@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
-import "./GetMessageList";
+import "./GetMessagesList";
 
 export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
@@ -18,7 +18,7 @@ export const GetMessageList = () => {
   });
   useEffect(() => {
     dispatch(getMessageList());
-  });
+  }, []);
 
   return (
     <>
