@@ -160,7 +160,6 @@ class API {
     }
   }
 
-<<<<<<< HEAD
 
 async userList() {
   try {
@@ -172,11 +171,7 @@ async userList() {
     throw err;
   }
 }
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
-
-=======
+  
   async userList() {
     try {
       const result = await this.axiosInstance.get("/users");
@@ -191,7 +186,6 @@ async userList() {
   async userList() {
     try {
       const result = await this.axiosInstance.get("/users");
->>>>>>> regToggle
 
       return result;
     } catch (err) {
