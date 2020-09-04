@@ -14,7 +14,7 @@ export * from "./deleteMessages";
 
 export * from "./likes";
 
-<<<<<<< HEAD
+
 
 
 
@@ -24,11 +24,7 @@ export * from "./getmessages";
 
 export * from "./userList";
 
-
-
-
-=======
 export * from "./getmessages";
 
 export * from "./userList";
->>>>>>> components
+
