@@ -4,7 +4,7 @@ import { getMessage } from "../../redux/actions/getmessages";
 import { Loader } from "../loader";
 import "./GetMessage.css";
 
-export const GetMessage = () => {
+export const GetMessage = ({ messageId }) => {
   // const { loading, error, messages } = useSelector((state) => ({
   //   loading: state.auth.loading,
   //   error: state.auth.error,
@@ -13,15 +13,15 @@ export const GetMessage = () => {
 
   const dispatch = useDispatch();
 
-  const [messages, setMessage] = useState("messagesId");
+  const [getMessages, setGetMessages] = useState({ messageId });
   useEffect(() => {
     dispatch(getMessage());
-  });
+  }, [getMessages]);
 
   return (
     <>
-      {messages &&
-        messages.map((message) => <p key={message.id}>{message.text}</p>)}
+      {getMessages &&
+        getMessages.map((message) => <p key={message.id}>{message.text}</p>)}
     </>
   );
 };
