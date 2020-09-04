@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-<<<<<<< HEAD:src/components/get-message-list/GetMessageList.js
+
 import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
 import "./GetMessageList";
-=======
+
 import { getMessageList } from "../../redux/actions";
 import { Loader } from "../loader";
 import "./GetMessageList.css";
->>>>>>> components:src/components/GetMessageList/GetMessagesList.js
+
 
 export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
