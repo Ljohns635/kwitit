@@ -18,7 +18,7 @@ export const GetMessageList = () => {
   });
   useEffect(() => {
     dispatch(getMessageList());
-  }, [message, setMessage]);
+  }, []);
 
   return (
     <>
