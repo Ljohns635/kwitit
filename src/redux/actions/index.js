@@ -14,7 +14,7 @@ export * from "./deleteMessages";
 
 export * from "./likes";
 
-<<<<<<< HEAD
+
 
 
 export * from "./getmessages";
@@ -23,6 +23,6 @@ export * from "./getmessages";
 
 export * from "./userList";
 
-=======
-export * from "./userList";
->>>>>>> regToggle
+
+
+
