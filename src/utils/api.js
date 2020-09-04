@@ -160,7 +160,6 @@ class API {
     }
   }
 
-<<<<<<< HEAD
 
 async userList() {
   try {
@@ -172,33 +171,6 @@ async userList() {
     throw err;
   }
 }
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
-
-=======
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
-
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-      throw err;
-    }
-  }
-
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
->>>>>>> regToggle
-
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-      throw err;
-    }
-  }
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
