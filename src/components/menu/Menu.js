@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import "./Menu.css";
+import { MessageFeed } from "../../screens";
 
 export const Menu = () => {
   const isAuthenticated = useSelector((state) => !!state.auth.isAuthenticated);
@@ -15,7 +16,9 @@ export const Menu = () => {
       <div id="menu-links">
         {isAuthenticated ? (
           <>
-            <Link to="/messagefeed">Message Feed</Link>
+            <Link to="/messagefeed" onClick={MessageFeed}>
+              Message Feed
+            </Link>
             <Link to="/" onClick={logout}>
               Logout
             </Link>

@@ -20,7 +20,7 @@ export const Navigation = () => (
       />
       <ConnectedRoute
         exact
-        path="/:register"
+        path="/register"
         redirectIfAuthenticated
         component={RegisterScreen}
       />
@@ -33,7 +33,7 @@ export const Navigation = () => (
       <ConnectedRoute
         exact
         isProtected
-        path="/:messagefeed"
+        path="/messagefeed"
         component={MessageFeed}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
