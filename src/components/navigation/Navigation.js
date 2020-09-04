@@ -18,7 +18,12 @@ export const Navigation = () => (
         redirectIfAuthenticated
         component={HomeScreen}
       />
-      {/* <ConnectedRoute exact path="/:register" component={RegisterScreen} /> */}
+      <ConnectedRoute
+        exact
+        path="/:register"
+        redirectIfAuthenticated
+        component={RegisterScreen}
+      />
       <ConnectedRoute
         exact
         isProtected

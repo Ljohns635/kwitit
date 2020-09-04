@@ -11,6 +11,7 @@ export const Menu = () => {
   return (
     <div id="menu">
       <h1>KwitIt!</h1>
+
       <div id="menu-links">
         {isAuthenticated ? (
           <>

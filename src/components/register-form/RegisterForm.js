@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/register";
 import { Loader } from "../loader";
 import "./RegisterForm.css";
+import { Link } from "react-router-dom";
 
 export const RegisterForm = ({ register }) => {
   const { loading, error } = useSelector((state) => ({
@@ -68,6 +69,7 @@ export const RegisterForm = ({ register }) => {
         <button type="submit" disabled={loading}>
           Register
         </button>
+        <Link to="/">Home</Link>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/getmessages";
+import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
-import "./GetMessages.css";
+import "./GetMessageList";
 
 export const GetMessages = () => {
   const { loading, error, messages } = useSelector((state) => ({
@@ -13,11 +13,11 @@ export const GetMessages = () => {
 
   const dispatch = useDispatch();
 
-  const [state, setState] = useState({
+  const [message, setMessage] = useState({
     messagesId: "",
   });
   useEffect(() => {
-    dispatch(getMessageList);
+    dispatch(getMessageList());
   });
 
   // return (

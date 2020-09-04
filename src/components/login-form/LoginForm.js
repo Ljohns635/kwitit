@@ -55,7 +55,7 @@ export const LoginForm = ({ login }) => {
         <button type="submit" disabled={loading}>
           Login
         </button>
-        <Link to="/">Register</Link>
+        <Link to="/register">Register</Link>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
