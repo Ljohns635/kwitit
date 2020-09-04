@@ -81,18 +81,6 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         error: action.payload,
         loading: false,
       };
-      case USERLIST:
-        return {
-          ...INITIAL_STATE,
-          loading: true,
-        };  
-        case USERLIST_SUCCESS:      
-      return {
-        ...INITIAL_STATE,
-        USERLIST: action.payload,        
-        loading: false,
-      }; 
-      case USERLIST_FAILURE:
     case USERLIST:
       return {
         ...INITIAL_STATE,
