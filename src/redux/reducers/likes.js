@@ -43,7 +43,7 @@ const INITIAL_STATE = {
         ...INITIAL_STATE,
         error: action.payload,
         loading: false,
-      };      
+      };   
       default:
         return state;
     }

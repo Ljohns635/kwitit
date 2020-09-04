@@ -15,7 +15,7 @@ import {
 
 // INITIAL STATE
 const INITIAL_STATE = {
-  userList: {},
+  userList: [],
   isAuthenticated: "",
   username: "",
   displayName: "",
@@ -84,12 +84,7 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
     case USERLIST:
       return {
         ...INITIAL_STATE,
-        loading: true,
-      };
-    case USERLIST_SUCCESS:
-      return {
-        ...INITIAL_STATE,
-        USERLIST: action.payload,
+        userList: action.payload.users,        
         loading: false,
       };
     case USERLIST_FAILURE:

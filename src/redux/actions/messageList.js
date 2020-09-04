@@ -14,4 +14,4 @@ export const getMessageList = (messages) => async (dispatch, getstate) => {
   } catch (err) {
     dispatch({ type: GETMESSAGELIST_FAILOR, err });
   }
-};
+}

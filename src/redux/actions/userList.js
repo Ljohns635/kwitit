@@ -16,7 +16,7 @@ export const userlist = (users) => async (dispatch, getState) => {
     // console.log({ result })
 
     dispatch({ type: USERLIST_SUCCESS, payload });
-    console.log(payload)
+    console.log({payload})
   } catch (err) {
     dispatch({
       type: USERLIST_FAILURE,
