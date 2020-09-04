@@ -163,7 +163,9 @@ class API {
 
 
 async userList() {
+
   try {
+    console.log("api")
     const result = await this.axiosInstance.get("/users");      
     
     return result;
@@ -172,18 +174,9 @@ async userList() {
     throw err;
   }
 }
-  
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
-
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-      throw err;
-    }
-  }
+ 
 }
+
 
 
   
