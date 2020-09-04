@@ -17,7 +17,7 @@
      <ListGroup as="ul">
           <ListGroup.Item as="li" active>
             
-          {userList && userList.map(user =><ListGroup.Item as="li" action>
+          {userList && userlist.map(user =><ListGroup.Item as="li" action>
             {user.username}
             </ListGroup.Item>)}
           </ListGroup.Item>

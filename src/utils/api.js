@@ -161,9 +161,6 @@ class API {
     }
   }
 
-<<<<<<< HEAD
-
-
 
 async userList() {
   try {
@@ -173,11 +170,12 @@ async userList() {
   } catch (err) {
     helpMeInstructor(err);
     throw err;
-=======
+  }
+}
   async userList() {
     try {
       const result = await this.axiosInstance.get("/users");
->>>>>>> 6e7e958d2427b59e74e274609602ccf812bbdd1e
+
 
       return result;
     } catch (err) {
