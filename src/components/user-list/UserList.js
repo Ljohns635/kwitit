@@ -1,7 +1,7 @@
- import React, { useState, useEffect } from 'react';
- import ListGroup from 'react-bootstrap/ListGroup';
- import { useSelector, useDispatch } from 'react-redux'
- import {userlist} from "../../redux/actions"
+import React, { useState, useEffect } from "react";
+import ListGroup from "react-bootstrap/ListGroup";
+import { useSelector, useDispatch } from "react-redux";
+import { userlist } from "../../redux/actions";
 
  export default function UserList() {
    const dispatch = useDispatch()
@@ -28,7 +28,5 @@
         
     
     </ListGroup>
-          
-     )
-
-    }
+  );
+}

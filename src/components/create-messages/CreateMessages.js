@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createMessage } from "../../redux/actions/createMessages";
-import { Loader } from "../loader";
 import "./CreateMessages.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const CreateMessages = () => {
-  // const { loading, error } = useSelector((state) => ({
-  //   loading: state.auth.loading,
-  //   error: state.auth.error,
+  // const { loading, error, messages } = useSelector((state) => ({
+  //   loading: state.messages.loading,
+  //   error: state.messages.error,
+  //   messages: state.messages.list,
   // }));
-
   const dispatch = useDispatch();
 
   const [message, setMessage] = useState("text");

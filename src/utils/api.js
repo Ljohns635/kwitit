@@ -160,29 +160,6 @@ class API {
     }
   }
 
-
-async userList() {
-  try {
-    const result = await this.axiosInstance.get("/users");      
-    
-    return result;
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
-  }
-}
-  
-  async userList() {
-    try {
-      const result = await this.axiosInstance.get("/users");
-
-      return result;
-    } catch (err) {
-      helpMeInstructor(err);
-      throw err;
-    }
-  }
-
   async userList() {
     try {
       const result = await this.axiosInstance.get("/users");
