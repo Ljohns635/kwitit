@@ -61,7 +61,6 @@ class API {
     try {
       const result = await this.axiosInstance.get("/messages");
 
-
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -161,6 +160,7 @@ class API {
     }
   }
 
+<<<<<<< HEAD
 
 async userList() {
   try {
@@ -176,6 +176,22 @@ async userList() {
     try {
       const result = await this.axiosInstance.get("/users");
 
+=======
+  async userList() {
+    try {
+      const result = await this.axiosInstance.get("/users");
+
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
+  async userList() {
+    try {
+      const result = await this.axiosInstance.get("/users");
+>>>>>>> regToggle
 
       return result;
     } catch (err) {

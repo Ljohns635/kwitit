@@ -4,7 +4,11 @@ export * from "./NotFound";
 
 export * from "./MesseageFeed";
 
+<<<<<<< HEAD
 
 
 export * from "./Register";
 
+=======
+export * from "./Register";
+>>>>>>> regToggle
