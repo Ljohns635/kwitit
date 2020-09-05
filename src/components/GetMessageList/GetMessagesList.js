@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
 import "./GetMessagesList";
+import { ListGroup } from "react-bootstrap";
 
 export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
@@ -23,8 +24,18 @@ export const GetMessageList = () => {
   return (
     <>
       <h1>Messagelist</h1>
-      {messages &&
-        messages.map((message) => <p key={message.id}>{message.text}</p>)}
+      <ListGroup as="ul">
+        <ListGroup.Item as="li">
+          {messages &&
+            messages.map((message) => (
+              <ListGroup.Item as="li" action>
+                <strong>{message.username}</strong> <br />
+                {message.id} <br />
+                Msg: {message.text}
+              </ListGroup.Item>
+            ))}
+        </ListGroup.Item>
+      </ListGroup>
     </>
   );
 };
