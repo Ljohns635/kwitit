@@ -24,13 +24,13 @@ export const GetMessageList = () => {
   return (
     <>
       <h1>Messagelist</h1>
-      <ListGroup as="ul">
-        <ListGroup.Item as="li">
+      <ListGroup id="List">
+        <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
-              <ListGroup.Item as="li" action>
+              <ListGroup.Item as="li" action key={message.id}>
                 <strong>{message.username}</strong> <br />
-                {message.id} <br />
+                {/* <p key={message.id} /> */}
                 Msg: {message.text}
               </ListGroup.Item>
             ))}
