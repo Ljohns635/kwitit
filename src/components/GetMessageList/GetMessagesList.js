@@ -5,6 +5,34 @@ import { Loader } from "../loader";
 import "./GetMessagesList";
 import { ListGroup } from "react-bootstrap";
 import { getMessage } from "../../redux/actions/getmessages";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+const MyVerticallyCenteredModal = (props) => {
+  console.log(props);
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Message Opened
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Recieved: {props.user}</h4>
+        <p>Created at: {props.time}</p>
+        <p>{props.text}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
 export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
@@ -15,17 +43,20 @@ export const GetMessageList = () => {
 
   const dispatch = useDispatch();
 
-  const handleGetMessage = (messageId) => {
-    // console.log(messageId);
-    dispatch(getMessage(messageId));
-  };
-
   const [message, setMessage] = useState({
     messagesId: "",
   });
   useEffect(() => {
     dispatch(getMessageList());
   }, []);
+
+  //Getting a single message
+  const handleGetMessage = (messageId) => {
+    // console.log(messageId);
+    dispatch(getMessage(messageId));
+  };
+
+  const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <>
@@ -41,6 +72,7 @@ export const GetMessageList = () => {
                 <button
                   onClick={(evt) => {
                     handleGetMessage(message.id);
+                    setModalShow(true);
                   }}
                 >
                   Open
@@ -49,6 +81,13 @@ export const GetMessageList = () => {
             ))}
         </ListGroup.Item>
       </ListGroup>
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        user={message.username}
+        time={message.createdAt}
+        text={message.text}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };
