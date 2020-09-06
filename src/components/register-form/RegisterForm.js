@@ -22,6 +22,7 @@ export const RegisterForm = ({ register }) => {
   const handleRegister = (event) => {
     event.preventDefault();
     dispatch(actions.register(state));
+    console.log(state);
   };
 
   const handleChange = (event) => {
