@@ -91,9 +91,10 @@ class API {
     }
   }
 
-  async getMessages({ messageId }) {
+  async getMessages(messageId) {
+    console.log(messageId);
     try {
-      const result = await this.axiosInstance.get(`/messages/${messageId}`, {});
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -114,7 +115,7 @@ class API {
     }
   }
 
-  async deleteUser({ username }) {
+  async deleteUser(username) {
     try {
       const result = await this.axiosInstance.delete(`/users/${username}`, {});
       return result;
@@ -123,12 +124,10 @@ class API {
       throw err;
     }
   }
-  async deleteMessages({ messageId }) {
+  async deleteMessages(messageId) {
+    console.log(messageId);
     try {
-      const result = await this.axiosInstance.delete(
-        `/messages/${messageId}`,
-        {}
-      );
+      const result = await this.axiosInstance.delete(`/messages/${messageId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -160,28 +159,18 @@ class API {
     }
   }
 
+  async userList() {
+    try {
+      console.log("api");
+      const result = await this.axiosInstance.get("/users");
 
-
-async userList() {
-
-  try {
-    console.log("api")
-    const result = await this.axiosInstance.get("/users");      
-    
-    return result;
-  } catch (err) {
-    helpMeInstructor(err);
-    throw err;
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
   }
 }
- 
-}
-
-
-
-  
-
-     
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 

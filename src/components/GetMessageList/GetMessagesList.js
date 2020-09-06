@@ -4,6 +4,7 @@ import { getMessageList } from "../../redux/actions/messageList";
 import { Loader } from "../loader";
 import "./GetMessagesList";
 import { ListGroup } from "react-bootstrap";
+import { getMessage } from "../../redux/actions/getmessages";
 
 export const GetMessageList = () => {
   const { loading, error, messages } = useSelector((state) => ({
@@ -13,6 +14,11 @@ export const GetMessageList = () => {
   }));
 
   const dispatch = useDispatch();
+
+  const handleGetMessage = (messageId) => {
+    // console.log(messageId);
+    dispatch(getMessage(messageId));
+  };
 
   const [message, setMessage] = useState({
     messagesId: "",
@@ -32,6 +38,13 @@ export const GetMessageList = () => {
                 <strong>{message.username}</strong> <br />
                 {/* <p key={message.id} /> */}
                 Msg: {message.text}
+                <button
+                  onClick={(evt) => {
+                    handleGetMessage(message.id);
+                  }}
+                >
+                  Open
+                </button>
               </ListGroup.Item>
             ))}
         </ListGroup.Item>
