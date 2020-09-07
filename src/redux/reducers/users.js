@@ -66,7 +66,6 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
     case GET_USER:
       return {
         ...INITIAL_STATE,
-        username: action.payload,
         loading: true,
       };
     case GET_USER_SUCCESS:
@@ -83,15 +82,15 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
       };
     case USERLIST:
       return {
-        ...INITIAL_STATE,               
+        ...INITIAL_STATE,
         loading: true,
       };
-      case USERLIST_SUCCESS:      
+    case USERLIST_SUCCESS:
       return {
         ...INITIAL_STATE,
-        userList: action.payload.users,        
+        userList: action.payload.users,
         loading: false,
-      }; 
+      };
 
     case USERLIST_FAILURE:
       return {

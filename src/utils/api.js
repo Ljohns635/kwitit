@@ -67,7 +67,7 @@ class API {
       throw err;
     }
   }
-  async getUser({ username }) {
+  async getUser(username) {
     try {
       const result = await this.axiosInstance.get(`/users/${username}`);
       return result;

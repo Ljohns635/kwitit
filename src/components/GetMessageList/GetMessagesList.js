@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
-import { Loader } from "../loader";
 import "./GetMessagesList";
 import { ListGroup } from "react-bootstrap";
 import { getMessage } from "../../redux/actions/getmessages";
+import { deleteMessages } from "../../redux/actions/deleteMessages";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -55,9 +55,13 @@ export const GetMessageList = () => {
     // console.log(messageId);
     dispatch(getMessage(messageId));
   };
-
   const [modalShow, setModalShow] = React.useState(false);
+  // console.log(messages);
 
+  //Deleting a single messsage
+  const handleDelete = (messageId) => {
+    dispatch(deleteMessages(messageId));
+  };
   return (
     <>
       <h1>Messagelist</h1>
@@ -75,7 +79,14 @@ export const GetMessageList = () => {
                     setModalShow(true);
                   }}
                 >
-                  Open
+                  Open Message
+                </button>
+                <button
+                  onClick={(evt) => {
+                    handleDelete(message.id);
+                  }}
+                >
+                  Delete Message
                 </button>
               </ListGroup.Item>
             ))}
@@ -83,9 +94,9 @@ export const GetMessageList = () => {
       </ListGroup>
       <MyVerticallyCenteredModal
         show={modalShow}
-        user={message.username}
-        time={message.createdAt}
-        text={message.text}
+        user={messages.username}
+        time={messages.createdAt}
+        text={messages.text}
         onHide={() => setModalShow(false)}
       />
     </>
