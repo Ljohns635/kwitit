@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
 import "./GetMessagesList";
@@ -10,27 +10,30 @@ import Button from "react-bootstrap/Button";
 
 const MyVerticallyCenteredModal = (props) => {
   console.log(props);
+  const wrapper = useRef();
   return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Message Opened
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Recieved: {props.user}</h4>
-        <p>Created at: {props.time}</p>
-        <p>{props.text}</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+    <div ref={wrapper}>
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Message Opened
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Recieved: {props.user}</h4>
+          <p>Created at: {props.time}</p>
+          <p>{props.text}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 };
 
@@ -88,16 +91,16 @@ export const GetMessageList = () => {
                 >
                   Delete Message
                 </button>
+                <MyVerticallyCenteredModal
+                  show={modalShow}
+                  user={message.username}
+                  time={message.createdAt}
+                  text={message.text}
+                  onHide={() => setModalShow(false)}
+                />
               </ListGroup.Item>
             ))}
         </ListGroup.Item>
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          user={message.username}
-          time={message.createdAt}
-          text={message.text}
-          onHide={() => setModalShow(false)}
-        />
       </ListGroup>
     </>
   );
