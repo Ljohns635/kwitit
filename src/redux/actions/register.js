@@ -4,7 +4,7 @@ import api from "../../utils/api";
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
-export const LOGOUT = "LOGOUT";
+// export const LOGOUT = "LOGOUT";
 
 /*
  AUTH ACTIONS (this is a thunk....)
@@ -28,21 +28,21 @@ const register = (credentials) => async (dispatch, getState) => {
   }
 };
 
-const logout = () => async (dispatch, getState) => {
-  try {
-    // We do not care about the result of logging out
-    // as long as it succeeds
-    await api.logout();
-  } finally {
-    /**
-     * Let the reducer know that we are logged out
-     */
-    dispatch({ type: LOGOUT });
-  }
-};
+// const logout = () => async (dispatch, getState) => {
+//   try {
+//     // We do not care about the result of logging out
+//     // as long as it succeeds
+//     await api.logout();
+//   } finally {
+//     /**
+//      * Let the reducer know that we are logged out
+//      */
+//     dispatch({ type: LOGOUT });
+//   }
+// };
 // END AUTH ACTIONS
 
 export const actions = {
   register,
-  logout,
+  // logout,
 };

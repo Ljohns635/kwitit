@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useSelector, useDispatch } from "react-redux";
 import { userlist } from "../../redux/actions";
+import { deleteuser } from "../../redux/actions/deleteusers";
 
 export default function UserList() {
   const userListState = useSelector((state) => ({
@@ -12,6 +13,10 @@ export default function UserList() {
     console.log("hello");
     dispatch(userlist());
   }, []);
+
+  const handleDelete = (username) => {
+    dispatch(deleteuser(username));
+  };
 
   console.log(userListState);
   return (
@@ -24,6 +29,13 @@ export default function UserList() {
               <br />
               {console.log(user)}
               created at:{user.createdAt}
+              <button
+                onClick={(evt) => {
+                  handleDelete(user.username);
+                }}
+              >
+                Delete user
+              </button>
             </ListGroup.Item>
           ))}
       </ListGroup.Item>

@@ -91,14 +91,14 @@ export const GetMessageList = () => {
               </ListGroup.Item>
             ))}
         </ListGroup.Item>
+        <MyVerticallyCenteredModal
+          show={modalShow}
+          user={message.username}
+          time={message.createdAt}
+          text={message.text}
+          onHide={() => setModalShow(false)}
+        />
       </ListGroup>
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        user={messages.username}
-        time={messages.createdAt}
-        text={messages.text}
-        onHide={() => setModalShow(false)}
-      />
     </>
   );
 };
