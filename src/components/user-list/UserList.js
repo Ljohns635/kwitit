@@ -3,6 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useSelector, useDispatch } from "react-redux";
 import { userlist } from "../../redux/actions";
 import { getuser } from "../../redux/actions/getusers";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -43,41 +44,40 @@ export default function UserList() {
 
   console.log(userListState);
 
-  //Getting a single message
+  //Getting a single user
   const handleUser = (username) => {
-    // console.log(messageId);
     dispatch(getuser(username));
   };
 
   const [modalShow, setModalShow] = React.useState(false);
   return (
     <ListGroup as="ul">
-      <ListGroup.Item as="li" active>
-        {userListState.userList &&
-          userListState.userList.map((user) => (
-            <ListGroup.Item as="li" action>
-              {user.username}
-              <br />
-              {console.log(user)}
-              created at:{user.createdAt}
-              <button
-                onClick={(evt) => {
-                  handleUser(user.username);
-                  setModalShow(true);
-                }}
-              >
-                Open User
-              </button>
-            </ListGroup.Item>
-          ))}
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          // user={user.username}
-          // display={user.displayName}
-          // time={user.createdAt}
-          onHide={() => setModalShow(false)}
-        />
-      </ListGroup.Item>
+      {/* <ListGroup.Item as="li" active> */}
+      {userListState.userList &&
+        userListState.userList.map((user, i) => (
+          <ListGroup.Item as="li" key={i} action>
+            {user.username}
+            <br />
+            {console.log(user)}
+            created at:{user.createdAt}
+            <button
+              onClick={(evt) => {
+                handleUser(user.username);
+                setModalShow(true);
+              }}
+            >
+              Open User
+            </button>
+          </ListGroup.Item>
+        ))}
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        // user={user.username}
+        // display={user.displayName}
+        // time={user.createdAt}
+        onHide={() => setModalShow(false)}
+      />
+      {/* </ListGroup.Item> */}
     </ListGroup>
   );
 }

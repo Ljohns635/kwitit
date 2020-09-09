@@ -69,7 +69,9 @@ class API {
   }
   async getUser(username) {
     try {
+      console.log("insideapicall");
       const result = await this.axiosInstance.get(`/users/${username}`);
+      console.log(result);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -114,7 +116,7 @@ class API {
     }
   }
 
-  async deleteUser({ username }) {
+  async deleteUser(username) {
     try {
       const result = await this.axiosInstance.delete(`/users/${username}`, {});
       return result;
