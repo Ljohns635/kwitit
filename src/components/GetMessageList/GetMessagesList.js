@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
-import "./GetMessagesList";
 import { ListGroup } from "react-bootstrap";
 import { getMessage } from "../../redux/actions/getmessages";
 import { deleteMessages } from "../../redux/actions/deleteMessages";
@@ -46,9 +45,9 @@ export const GetMessageList = () => {
 
   const dispatch = useDispatch();
 
-  const [message, setMessage] = useState({
-    messagesId: "",
-  });
+  // const [message, setMessage] = useState({
+  //   messagesId: "",
+  // });
   useEffect(() => {
     dispatch(getMessageList());
   }, []);

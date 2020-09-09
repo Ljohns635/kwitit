@@ -4,7 +4,6 @@ import { createMessage } from "../../redux/actions/createMessages";
 import "./CreateMessages.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { getMessageList } from "../../redux/actions/messageList";
 
 const CreateMessages = () => {
   const dispatch = useDispatch();
