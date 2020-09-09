@@ -91,6 +91,15 @@ class API {
     }
   }
 
+  // async regOut() {
+  //   try {
+  //     await this.axiosInstance.get("/auth/logout");
+  //   } catch (err) {
+  //     helpMeInstructor(err);
+  //     throw err;
+  //   }
+  // }
+
   async getMessages(messageId) {
     console.log(messageId);
     try {

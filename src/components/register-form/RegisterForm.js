@@ -28,7 +28,6 @@ export const RegisterForm = ({ register }) => {
     console.log(event);
     const inputName = event.target.name;
     const inputValue = event.target.value;
-    // const displayName = event.target.name;
     setState((prevState) => ({
       ...prevState,
       [inputName]: inputValue,
