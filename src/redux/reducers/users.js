@@ -18,6 +18,7 @@ const INITIAL_STATE = {
   userList: [],
   isAuthenticated: "",
   username: "",
+  user: {},
   displayName: "",
   loading: false,
   error: "",
@@ -71,7 +72,7 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
     case GET_USER_SUCCESS:
       return {
         ...INITIAL_STATE,
-        username: action.payload.username,
+        user: action.payload.user,
         loading: false,
       };
     case GET_USER_FAILURE:
