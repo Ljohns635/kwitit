@@ -67,8 +67,8 @@ export const GetMessageList = () => {
   };
 
   //Like button
-  const handleLikes = ({messageId}) => {
-    dispatch(like({messageId}))
+  const handleLikes = (messageId) => {
+    dispatch(like(messageId))
   }
   return (
     <>
@@ -105,10 +105,12 @@ export const GetMessageList = () => {
                 />
                   
                  <Button variant="outline-primary" size="sm" onClick={(evt) => {
-                   console.log("like this message")
-                 }}>
+                    console.log("like this message")
+                 handleLikes(message.id)
+                  }}>
                 <strong>Like</strong>
                 </Button>{' '} 
+                <span>{message.likes.length}</span>
 
                 </ListGroup.Item>
             ))}
