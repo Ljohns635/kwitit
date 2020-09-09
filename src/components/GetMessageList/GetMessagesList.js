@@ -4,12 +4,13 @@ import { getMessageList } from "../../redux/actions/messageList";
 import { ListGroup } from "react-bootstrap";
 import { getMessage } from "../../redux/actions/getmessages";
 import { deleteMessages } from "../../redux/actions/deleteMessages";
+import { like } from "../../redux/actions/likes"
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 // import Badge from "react-bootstrap/Badge ";
 
 const MyVerticallyCenteredModal = (props) => {
-  console.log(props);
+  // console.log(props);
   const wrapper = useRef();
   return (
     <div ref={wrapper}>
@@ -65,6 +66,11 @@ export const GetMessageList = () => {
   const handleDelete = (messageId) => {
     dispatch(deleteMessages(messageId));
   };
+
+  //Like button
+  const handleLikes = (messageId) => {
+    dispatch(like(messageId))
+  }
   return (
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
@@ -100,7 +106,16 @@ export const GetMessageList = () => {
                   text={message.text}
                   onHide={() => setModalShow(false)}
                 />
-              </ListGroup.Item>
+                  
+                 <Button variant="outline-primary" size="sm" onClick={(evt) => {
+                    console.log("like this message")
+                 handleLikes(message.id)
+                  }}>
+                <strong>Like</strong>
+                </Button>{' '} 
+                <span>{message.likes.length}</span>
+
+                </ListGroup.Item>
             ))}
         </ListGroup.Item>
       </ListGroup>

@@ -25,9 +25,9 @@ export default function UserList() {
         {userListState.userList &&
           userListState.userList.map((user) => (
             <ListGroup.Item as="li" action>
-              {user.username}
+              {/* {user.username} */}
               <br />
-              {console.log(user)}
+              {/* {console.log(user)} */}
               created at:{user.createdAt}
               <button
                 onClick={(evt) => {
