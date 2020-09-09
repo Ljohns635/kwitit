@@ -43,7 +43,6 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
     case GET_MESSAGE:
       return {
         ...state,
-        messageId: action.payload,
         loading: true,
       };
     case GET_MESSAGE_SUCCESS:
@@ -79,7 +78,6 @@ export const messageReducer = (state = INITIAL_STATE, action) => {
     case DELETE_MESSAGE:
       return {
         ...state,
-        messageId: action.payload,
         loading: true,
       };
     case DELETE_MESSAGE_SUCCESS:
