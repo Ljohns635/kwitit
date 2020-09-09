@@ -6,6 +6,7 @@ import { getMessage } from "../../redux/actions/getmessages";
 import { deleteMessages } from "../../redux/actions/deleteMessages";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+// import Badge from "react-bootstrap/Badge ";
 
 const MyVerticallyCenteredModal = (props) => {
   console.log(props);
@@ -66,7 +67,7 @@ export const GetMessageList = () => {
   };
   return (
     <>
-      <h1>Messagelist</h1>
+      <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
       <ListGroup id="List">
         <ListGroup.Item as="ul">
           {messages &&
@@ -75,21 +76,23 @@ export const GetMessageList = () => {
                 <strong>{message.username}</strong> <br />
                 {/* <p key={message.id} /> */}
                 Msg: {message.text}
-                <button
+                <Button
+                  variant="outline-secondary"
                   onClick={(evt) => {
                     handleGetMessage(message.id);
                     setModalShow(true);
                   }}
                 >
                   Open Message
-                </button>
-                <button
+                </Button>{" "}
+                <Button
+                  variant="outline-danger"
                   onClick={(evt) => {
                     handleDelete(message.id);
                   }}
                 >
                   Delete Message
-                </button>
+                </Button>{" "}
                 <MyVerticallyCenteredModal
                   show={modalShow}
                   user={message.username}

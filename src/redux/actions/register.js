@@ -1,4 +1,5 @@
 import api from "../../utils/api";
+import { actions } from "./auth";
 
 // AUTH CONSTANTS
 export const REGISTER = "REGISTER";
@@ -13,14 +14,17 @@ export const REGISTER_FAILURE = "REGISTER_FAILURE";
  If you need access to your store you may call getState()
 */
 const register = (credentials) => async (dispatch, getState) => {
-  console.log(credentials);
+  // console.log(credentials);
   try {
     dispatch({ type: REGISTER });
     const payload = await api.register(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+    console.log(payload);
+    let loginCredentials = { ...credentials };
+    delete loginCredentials.displayName;
 
-    dispatch({ type: REGISTER_SUCCESS, payload });
+    await dispatch({ type: REGISTER_SUCCESS, payload });
+    dispatch(actions.login(loginCredentials));
   } catch (err) {
     dispatch({
       type: REGISTER_FAILURE,
@@ -43,7 +47,7 @@ const register = (credentials) => async (dispatch, getState) => {
 // };
 // // END AUTH ACTIONS
 
-export const actions = {
+export const regActions = {
   register,
   // regLogout,
 };
