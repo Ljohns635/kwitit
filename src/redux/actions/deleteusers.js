@@ -1,5 +1,5 @@
 import api from "../../utils/api";
-import { getMessageList } from "../actions/messageList";
+// import { getMessageList } from "../actions/messageList";
 
 export const DELETE_USER = "DELETE_USER";
 export const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
@@ -10,7 +10,7 @@ export const deleteuser = (username) => async (dispatch) => {
     dispatch({ type: DELETE_USER });
     const payload = await api.deleteUser(username);
     dispatch({ type: DELETE_USER, payload });
-    dispatch(getMessageList());
+    // dispatch(getMessageList());
   } catch (err) {
     dispatch({ type: DELETE_USER_FAILURE, err });
   }
