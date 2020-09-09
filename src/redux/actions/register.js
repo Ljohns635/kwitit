@@ -1,10 +1,12 @@
 import api from "../../utils/api";
+import { actions } from "./auth";
 
 // AUTH CONSTANTS
 export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
-export const LOGOUT = "LOGOUT";
+
+// export const REG_LOGOUT = "REG_LOGOUT";
 
 /*
  AUTH ACTIONS (this is a thunk....)
@@ -12,14 +14,17 @@ export const LOGOUT = "LOGOUT";
  If you need access to your store you may call getState()
 */
 const register = (credentials) => async (dispatch, getState) => {
-  console.log(credentials);
+  // console.log(credentials);
   try {
     dispatch({ type: REGISTER });
     const payload = await api.register(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+    console.log(payload);
+    let loginCredentials = { ...credentials };
+    delete loginCredentials.displayName;
 
-    dispatch({ type: REGISTER_SUCCESS, payload });
+    await dispatch({ type: REGISTER_SUCCESS, payload });
+    dispatch(actions.login(loginCredentials));
   } catch (err) {
     dispatch({
       type: REGISTER_FAILURE,
@@ -28,21 +33,21 @@ const register = (credentials) => async (dispatch, getState) => {
   }
 };
 
-const logout = () => async (dispatch, getState) => {
-  try {
-    // We do not care about the result of logging out
-    // as long as it succeeds
-    await api.logout();
-  } finally {
-    /**
-     * Let the reducer know that we are logged out
-     */
-    dispatch({ type: LOGOUT });
-  }
-};
-// END AUTH ACTIONS
+// const regLogout = () => async (dispatch) => {
+//   try {
+//     // We do not care about the result of logging out
+//     // as long as it succeeds
+//     await api.regOut();
+//   } finally {
+//     /**
+//      * Let the reducer know that we are logged out
+//      */
+//     dispatch({ type: REG_LOGOUT });
+//   }
+// };
+// // END AUTH ACTIONS
 
-export const actions = {
+export const regActions = {
   register,
-  logout,
+  // regLogout,
 };

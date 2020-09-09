@@ -6,28 +6,28 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const CreateMessages = () => {
-  // const { loading, error, messages } = useSelector((state) => ({
-  //   loading: state.messages.loading,
-  //   error: state.messages.error,
-  //   messages: state.messages.list,
-  // }));
   const dispatch = useDispatch();
 
   const [message, setMessage] = useState("text");
   // console.log(message);
   const handleChange = (event) => {
+    // console.log(event.target.value);
     const inputName = event.target.name;
     const inputValue = event.target.value;
     setMessage((prevMessage) => ({ ...prevMessage, [inputName]: inputValue }));
+    // setMessage(inputValue);
   };
 
   //recieved help from Marcel Cornett
   const handleSend = (event) => {
     // console.log(event);
+
     event.preventDefault();
     dispatch(createMessage(message));
-  };
 
+    setMessage({ text: "" });
+  };
+  // console.log(message);
   return (
     <React.Fragment>
       <Form>
@@ -38,6 +38,7 @@ const CreateMessages = () => {
             as="textarea"
             rows="3"
             name="text"
+            value={message.text}
           />
         </Form.Group>
         <Button variant="secondary" size="lg" block onClick={handleSend}>

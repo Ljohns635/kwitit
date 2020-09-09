@@ -2,6 +2,7 @@ import {
   REGISTER,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
+  // REG_LOGOUT,
   DELETE_USER,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
@@ -46,6 +47,10 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         error: action.payload,
         loading: false,
       };
+    // case REG_LOGOUT:
+    //   return {
+    //     ...INITIAL_STATE,
+    //   };
     case DELETE_USER:
       return {
         ...INITIAL_STATE,

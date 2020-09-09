@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "../../redux/actions/register";
+import { regActions } from "../../redux/actions/register";
 import { Loader } from "../loader";
 import "./RegisterForm.css";
 import { Link } from "react-router-dom";
@@ -21,15 +21,13 @@ export const RegisterForm = ({ register }) => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-    dispatch(actions.register(state));
-    console.log(state);
+    dispatch(regActions.register(state));
   };
 
   const handleChange = (event) => {
     console.log(event);
     const inputName = event.target.name;
     const inputValue = event.target.value;
-    // const displayName = event.target.name;
     setState((prevState) => ({
       ...prevState,
       [inputName]: inputValue,

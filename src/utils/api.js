@@ -93,9 +93,10 @@ class API {
     }
   }
 
-  async getMessages({ messageId }) {
+  async getMessages(messageId) {
+    // console.log(messageId);
     try {
-      const result = await this.axiosInstance.get(`/messages/${messageId}`, {});
+      const result = await this.axiosInstance.get(`/messages/${messageId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -125,12 +126,10 @@ class API {
       throw err;
     }
   }
-  async deleteMessages({ messageId }) {
+  async deleteMessages(messageId) {
+    console.log(messageId);
     try {
-      const result = await this.axiosInstance.delete(
-        `/messages/${messageId}`,
-        {}
-      );
+      const result = await this.axiosInstance.delete(`/messages/${messageId}`);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -139,11 +138,13 @@ class API {
   }
 
   //Akil recieved help from Marcell
-  async likes({ messageId }) {
+  async likes(messageId) {
+    console.log("likes")
     try {
       const result = await this.axiosInstance.post("/likes", {
         messageId,
       });
+      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -151,9 +152,10 @@ class API {
     }
   }
 
-  async unLikes({ likeId }) {
+  async unLikes( likeId ) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`);
+      console.log(result)
 
       return result;
     } catch (err) {
