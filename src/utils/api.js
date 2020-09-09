@@ -91,17 +91,8 @@ class API {
     }
   }
 
-  // async regOut() {
-  //   try {
-  //     await this.axiosInstance.get("/auth/logout");
-  //   } catch (err) {
-  //     helpMeInstructor(err);
-  //     throw err;
-  //   }
-  // }
-
   async getMessages(messageId) {
-    console.log(messageId);
+    // console.log(messageId);
     try {
       const result = await this.axiosInstance.get(`/messages/${messageId}`);
       return result;
@@ -146,6 +137,7 @@ class API {
 
   //Akil recieved help from Marcell
   async likes({ messageId }) {
+    console.log({messageId})
     try {
       const result = await this.axiosInstance.post("/likes", {
         messageId,
@@ -157,7 +149,7 @@ class API {
     }
   }
 
-  async unLikes({ likeId }) {
+  async unLikes( likeId ) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`);
 
