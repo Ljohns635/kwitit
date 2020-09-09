@@ -14,11 +14,6 @@ export * from "./deleteMessages";
 
 export * from "./likes";
 
-
-
-export * from "./getmessages";
-
 export * from "./userList";
 
-
-
+export * from "./getmessages";

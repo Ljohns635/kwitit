@@ -4,38 +4,40 @@ import { useSelector, useDispatch } from "react-redux";
 import { userlist } from "../../redux/actions";
 import { deleteuser } from "../../redux/actions/deleteusers";
 
+import Button from "react-bootstrap/Button";
+
 export default function UserList() {
   const userListState = useSelector((state) => ({
     userList: state.users.userList,
   }));
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("hello");
+    // console.log("hello");
     dispatch(userlist());
   }, []);
 
+  console.log(userListState);
   const handleDelete = (username) => {
     dispatch(deleteuser(username));
   };
-
-  console.log(userListState);
   return (
-    <ListGroup as="ul">
-      <ListGroup.Item as="li" active>
+    <ListGroup id="userlist">
+      <ListGroup.Item as="ul" active>
         {userListState.userList &&
           userListState.userList.map((user) => (
-            <ListGroup.Item as="li" action>
-              {/* {user.username} */}
+            <ListGroup.Item as="li" action key={user.username}>
+              {user.username}
               <br />
-              {/* {console.log(user)} */}
+              {console.log(user)}
               created at:{user.createdAt}
-              <button
+              <Button
+                variant="outline-danger"
                 onClick={(evt) => {
                   handleDelete(user.username);
                 }}
               >
-                Delete user
-              </button>
+                Delete User
+              </Button>{" "}
             </ListGroup.Item>
           ))}
       </ListGroup.Item>
