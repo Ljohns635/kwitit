@@ -1,21 +1,21 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import { GoogleLogin } from "react-google-login";
+import React from "react";
 
-// export const GoogleAuth = () => {
-//   const responseGoogle = (response) => {
-//     console.log(response);
-//   };
+import { GoogleLogin } from "react-google-login";
 
-//   return (
-//     <>
-//       <GoogleLogin
-//         clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-//         buttonText="Login"
-//         onSuccess={responseGoogle}
-//         onFailure={responseGoogle}
-//         cookiePolicy={"single_host_origin"}
-//       />
-//     </>
-//   );
-// };
+export const GoogleAuth = () => {
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
+
+  return (
+    <>
+      <GoogleLogin
+        clientId="124824441411-pa38c55a2o9cpon4pkvvl00odv8brtuh.apps.googleusercontent.com"
+        buttonText="Google Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={"single_host_origin"}
+      />
+    </>
+  );
+};
