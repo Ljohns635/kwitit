@@ -4,7 +4,7 @@ import {
   HomeScreen,
   ProfileScreen,
   NotFoundScreen,
-  MessageFeed,
+  UserFeed,
   RegisterScreen,
 } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
@@ -30,12 +30,7 @@ export const Navigation = () => (
         path="/profiles/:username"
         component={ProfileScreen}
       />
-      <ConnectedRoute
-        exact
-        isProtected
-        path="/messagefeed"
-        component={MessageFeed}
-      />
+      <ConnectedRoute exact isProtected path="/userfeed" component={UserFeed} />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
   </BrowserRouter>

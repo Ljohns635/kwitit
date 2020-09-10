@@ -1,6 +1,8 @@
 import React from "react";
 import { MenuContainer } from "../components";
-import UserList from "../components/user-list/UserList";
+// import UserList from "../components/user-list/UserList";
+import { GetMessageList } from "../components";
+import CreateMessages from "../components/create-messages/CreateMessages";
 import { GetUser } from "../components/getuser/getUser";
 export const ProfileScreen = () => (
   <>
@@ -9,7 +11,10 @@ export const ProfileScreen = () => (
     <GetUser />
     <br />
     <br />
-    <h3>User List</h3>
-    <UserList />
+    <CreateMessages />
+    <br />
+    <br />
+    <GetMessageList />
+    {/* <h3>User List</h3> */}
   </>
 );
