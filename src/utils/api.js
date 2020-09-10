@@ -57,6 +57,17 @@ class API {
     }
   }
 
+  async googlelogin() {
+    try {
+      const result = await this.axiosInstance.post("/auth/google/login");
+
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      throw err;
+    }
+  }
+
   async getMessageList() {
     try {
       const result = await this.axiosInstance.get("/messages");
@@ -139,12 +150,12 @@ class API {
 
   //Akil recieved help from Marcell
   async likes(messageId) {
-    console.log("likes")
+    console.log("likes");
     try {
       const result = await this.axiosInstance.post("/likes", {
         messageId,
       });
-      console.log(result)
+      console.log(result);
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -152,10 +163,10 @@ class API {
     }
   }
 
-  async unLikes( likeId ) {
+  async unLikes(likeId) {
     try {
       const result = await this.axiosInstance.delete(`/likes/${likeId}`);
-      console.log(result)
+      console.log(result);
 
       return result;
     } catch (err) {
