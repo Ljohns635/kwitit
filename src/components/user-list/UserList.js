@@ -16,7 +16,7 @@ export default function UserList() {
     dispatch(userlist());
   }, []);
 
-  console.log(userListState);
+  // console.log(userListState);
   const handleDelete = (username) => {
     dispatch(deleteuser(username));
   };
@@ -28,7 +28,7 @@ export default function UserList() {
             <ListGroup.Item as="li" action key={user.username}>
               {user.username}
               <br />
-              {console.log(user)}
+              {/* {console.log(user)} */}
               created at:{user.createdAt}
               <Button
                 variant="outline-danger"

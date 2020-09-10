@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { getuser } from "../../redux/actions/getusers";
 import { Loader } from "../loader";
 import { Card, Button } from "react-bootstrap";
-import UserList from "../user-list/UserList";
 
 // import "./GetUser";
 
@@ -21,13 +20,16 @@ export const GetUser = () => {
     dispatch(getuser(username));
   }, []);
   console.log(userinfo);
-  console.log(userinfo.username);
+  console.log(userinfo.displayName);
   console.log(userinfo.updatedAt);
 
   return (
     <>
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img
+          variant="top"
+          src="https://frodsham.gov.uk/wp-content/uploads/2019/05/profile-photo-placeholder.jpg"
+        />
         <Card.Body>
           <Card.Title>{userinfo.username}</Card.Title>
           <Card.Text>Updated At: {userinfo.updatedAt}</Card.Text>
@@ -38,7 +40,6 @@ export const GetUser = () => {
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
       </Card>
-      <UserList />
     </>
   );
 };

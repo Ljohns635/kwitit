@@ -6,7 +6,10 @@ export const ProfileScreen = () => (
   <>
     <MenuContainer />
     <h2>Profile</h2>
-
     <GetUser />
+    <br />
+    <br />
+    <h3>User List</h3>
+    <UserList />
   </>
 );
