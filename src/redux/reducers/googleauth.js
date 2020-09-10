@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   error: "",
 };
 
-export const authReducer = (state = { ...INITIAL_STATE }, action) => {
+export const googleReducer = (state = { ...INITIAL_STATE }, action) => {
   switch (action.type) {
     case GOOGLE_LOGIN:
       return {
