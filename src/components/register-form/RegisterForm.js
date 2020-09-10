@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { regActions } from "../../redux/actions/register";
 import { Loader } from "../loader";
 import "./RegisterForm.css";
-import { Link } from "react-router-dom";
 
 export const RegisterForm = ({ register }) => {
   const { loading, error } = useSelector((state) => ({
