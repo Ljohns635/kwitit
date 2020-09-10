@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   isAuthenticated: "",
   username: "",
   loading: false,
-  error: "",
+  error: "Incorrect Credentials",
 };
 
 export const authReducer = (state = { ...INITIAL_STATE }, action) => {
