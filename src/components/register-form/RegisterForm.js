@@ -68,7 +68,6 @@ export const RegisterForm = ({ register }) => {
         <button type="submit" disabled={loading}>
           Register
         </button>
-        <Link to="/">Home</Link>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
