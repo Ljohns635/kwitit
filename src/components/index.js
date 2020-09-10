@@ -8,3 +8,4 @@ export * from "./create-messages";
 export * from "./delete-messages";
 export * from "./user-list";
 export * from "./google-auth";
+export * from "./delete-user";

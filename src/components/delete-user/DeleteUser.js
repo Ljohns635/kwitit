@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { getuser } from "../../redux/actions/getusers";
 import { Loader } from "../loader";
 import { Card, Button } from "react-bootstrap";
+import { deleteuser } from "../../redux/actions/deleteusers";
 
-// import "./GetUser";
+// import "./DeleteUser.css";
 
-export const GetUser = () => {
+export const DeleteUser = () => {
   const { loading, error, userinfo, username } = useSelector((state) => ({
     loading: state.users.loading,
     error: state.users.error,
@@ -23,6 +24,10 @@ export const GetUser = () => {
   console.log(userinfo.displayName);
   console.log(userinfo.updatedAt);
 
+  const handleDelete = (username) => {
+    dispatch(deleteuser(username));
+  };
+
   return (
     <>
       <Card style={{ width: "18rem" }}>
@@ -32,14 +37,23 @@ export const GetUser = () => {
         />
         <Card.Body>
           <Card.Title>{userinfo.username}</Card.Title>
-          <Card.Text>Updated At: {userinfo.updatedAt}</Card.Text>
           <Card.Text>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat
+            <strong>Display Name:</strong> {userinfo.displayName}
           </Card.Text>
-          {/* <Button variant="primary">Go somewhere</Button> */}
+          <Card.Text>
+            <strong>Created At:</strong> {userinfo.createdAt}
+          </Card.Text>
+          <Card.Text>
+            <strong>Updated At:</strong> {userinfo.updatedAt}
+          </Card.Text>
+          <Button
+            variant="outline-danger"
+            onClick={(evt) => {
+              handleDelete(userinfo.username);
+            }}
+          >
+            Deactivate Account
+          </Button>{" "}
         </Card.Body>
       </Card>
     </>
