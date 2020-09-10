@@ -4,7 +4,7 @@ import { getMessageList } from "../../redux/actions/messageList";
 import { ListGroup } from "react-bootstrap";
 import { getMessage } from "../../redux/actions/getmessages";
 import { deleteMessages } from "../../redux/actions/deleteMessages";
-import { like } from "../../redux/actions/likes"
+import { like } from "../../redux/actions/likes";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 // import Badge from "react-bootstrap/Badge ";
@@ -69,8 +69,8 @@ export const GetMessageList = () => {
 
   //Like button
   const handleLikes = (messageId) => {
-    dispatch(like(messageId))
-  }
+    dispatch(like(messageId));
+  };
   return (
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
@@ -81,7 +81,7 @@ export const GetMessageList = () => {
               <ListGroup.Item as="li" action key={message.id}>
                 <strong>{message.username}</strong> <br />
                 {/* <p key={message.id} /> */}
-                Msg: {message.text}
+                Sent at: {message.createdAt}
                 <Button
                   variant="outline-secondary"
                   onClick={(evt) => {
@@ -106,16 +106,18 @@ export const GetMessageList = () => {
                   text={message.text}
                   onHide={() => setModalShow(false)}
                 />
-                  
-                 <Button variant="outline-primary" size="sm" onClick={(evt) => {
-                    console.log("like this message")
-                 handleLikes(message.id)
-                  }}>
-                <strong>Like</strong>
-                </Button>{' '} 
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  onClick={(evt) => {
+                    console.log("like this message");
+                    handleLikes(message.id);
+                  }}
+                >
+                  <strong>Like</strong>
+                </Button>{" "}
                 <span>{message.likes.length}</span>
-
-                </ListGroup.Item>
+              </ListGroup.Item>
             ))}
         </ListGroup.Item>
       </ListGroup>
