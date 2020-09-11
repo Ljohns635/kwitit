@@ -5,6 +5,8 @@ import { actions } from "../../redux/actions/auth";
 import "./Menu.css";
 import { UserFeed } from "../../screens";
 import { Account } from "../../screens";
+import {NotFoundScreen} from "../../screens/NotFound"
+
 
 export const Menu = () => {
   const isAuthenticated = useSelector((state) => !!state.auth.isAuthenticated);
@@ -20,12 +22,15 @@ export const Menu = () => {
             <Link to="/userfeed" onClick={UserFeed}>
               User Feed
             </Link>
+            <Link to="/hashtag" onClick={NotFoundScreen}>
+              HashTags
+            </Link>
             <Link to="/account" onClick={Account}>
               Account
             </Link>
             <Link to="/" onClick={logout}>
               Logout
-            </Link>
+            </Link>            
           </>
         ) : null}
       </div>
