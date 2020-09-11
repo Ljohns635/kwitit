@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+
 import { logingoogle } from "../../redux/actions/googleAuth";
 import GoogleLogin from "react-google-login";
-import { connect } from "react-redux";
+
 
 export const LoginForm = ({ login }) => {
   const { loading, error } = useSelector((state) => ({

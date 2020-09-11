@@ -44,7 +44,7 @@ const CreateMessages = () => {
       >
         <Form.Group controlId="message-box">
           <Form.Label>
-            <Badge pill variant="secondary">
+            <Badge style={{backgroundColor: "#A5FA70"}}>
               Send Kwit
             </Badge>{" "}
 
@@ -57,7 +57,7 @@ const CreateMessages = () => {
             value={message.text}
           />
         </Form.Group>
-        <Button variant="secondary" size="lg" block onClick={handleSend}>
+        <Button style={{backgroundColor: "#A5FA70"}} size="lg" block onClick={handleSend}>
           Send Kwit
         </Button>
       </Form>

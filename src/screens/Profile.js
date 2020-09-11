@@ -9,7 +9,7 @@ export const ProfileScreen = () => (
   <>
   <div id="box" style={{backgroundColor: "#EFFEE5"}}>
     <MenuContainer />
-    <h2 style={{ fontFamily: "Fredoka One", marginLeft: "30px" }}>Profile</h2>
+    <h2 style={{ fontFamily: "Fredoka One", position: "relative", left: "48%", margin: "12px"}}>Profile</h2>
 
     <GetUser />
     <br />
