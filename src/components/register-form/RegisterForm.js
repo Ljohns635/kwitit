@@ -36,7 +36,7 @@ export const RegisterForm = ({ register }) => {
   return (
     <React.Fragment>
       <form id="register-form" onSubmit={handleRegister}>
-        <label htmlFor="username">Username</label>
+        {/* <label htmlFor="username">Username</label> */}
         <input
           type="text"
           name="username"
@@ -45,8 +45,9 @@ export const RegisterForm = ({ register }) => {
           autoFocus
           required
           onChange={handleChange}
+          className="inputtest userinput"
         />
-        <label htmlFor="displayName">Display Name</label>
+        {/* <label htmlFor="displayName">Display Name</label> */}
         <input
           type="text"
           name="displayName"
@@ -54,8 +55,9 @@ export const RegisterForm = ({ register }) => {
           value={state.displayName}
           required
           onChange={handleChange}
+          className="inputtest"
         />
-        <label htmlFor="password">Password</label>
+        {/* <label htmlFor="password">Password</label> */}
         <input
           type="password"
           name="password"
@@ -63,13 +65,14 @@ export const RegisterForm = ({ register }) => {
           value={state.password}
           required
           onChange={handleChange}
+          className="inputtest"
         />
         <button type="submit" disabled={loading}>
           Register
         </button>
+        {loading && <Loader />}
+        {error && <p style={{ color: "red" }}>{error.message}</p>}
       </form>
-      {loading && <Loader />}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
   );
 };
