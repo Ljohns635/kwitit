@@ -38,7 +38,6 @@ export const Menu = () => {
 
             </Link>            
 
-            </Link>
             <Form inline>
               <FormControl
                 type="text"
