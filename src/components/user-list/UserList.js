@@ -16,7 +16,7 @@ export default function UserList() {
 
   return (
     <ListGroup id="userlist" style={{width:"77%", position: "absolute", right: "11%"}}>
-      <ListGroup.Item as="ul" active>
+      <ListGroup.Item as="ul" style={{backgroundColor: "#A5FA70"}}>
         {userListState.userList &&
           userListState.userList.map((user) => (
             <ListGroup.Item as="li" action key={user.username}>
