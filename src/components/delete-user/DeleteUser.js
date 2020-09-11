@@ -30,7 +30,7 @@ export const DeleteUser = () => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", position: "absolute", left: "40%" }}>
         <Card.Img
           variant="top"
           src="https://frodsham.gov.uk/wp-content/uploads/2019/05/profile-photo-placeholder.jpg"

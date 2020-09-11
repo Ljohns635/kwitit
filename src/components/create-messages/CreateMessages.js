@@ -30,7 +30,7 @@ const CreateMessages = () => {
   // console.log(message);
   return (
     <React.Fragment>
-      <Form>
+      <Form style={{width: "77%", float: "right", top: "80px", padding: "30px", position: "absolute", top: "460px", right: "50px"}}>
         <Form.Group controlId="message-box">
           <Form.Label>Send Message</Form.Label>
           <Form.Control

@@ -7,6 +7,7 @@ import { deleteMessages } from "../../redux/actions/deleteMessages";
 import { like } from "../../redux/actions/likes";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 // import Badge from "react-bootstrap/Badge ";
 
 const MyVerticallyCenteredModal = (props) => {
@@ -74,7 +75,7 @@ export const GetMessageList = () => {
   return (
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
-      <ListGroup id="List">
+      <ListGroup id="List" style={{width: "77%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "50px" }}>
         <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
@@ -94,6 +95,7 @@ export const GetMessageList = () => {
                 <Button
                   variant="outline-danger"
                   onClick={(evt) => {
+                    alert("Are you SURE you want to delete. Deleting message will be permanent")
                     handleDelete(message.id);
                   }}
                 >
