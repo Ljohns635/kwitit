@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+
+import { logingoogle } from "../../redux/actions/googleAuth";
+import GoogleLogin from "react-google-login";
+
 
 export const LoginForm = ({ login }) => {
   const { loading, error } = useSelector((state) => ({
@@ -24,6 +27,20 @@ export const LoginForm = ({ login }) => {
     dispatch(actions.login(state));
   };
 
+  const handleGoogleLogin = () => {
+    const googleLoginWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank"
+    );
+    googleLoginWindow.window.opener.onmessage = (evt) => {
+      googleLoginWindow.close();
+      if (!evt || !evt.data || !evt.data.token) {
+        return;
+      }
+      dispatch(logingoogle(evt.data));
+    };
+  };
+
   const handleChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
@@ -34,6 +51,7 @@ export const LoginForm = ({ login }) => {
     <React.Fragment>
       <form id="login-form" onSubmit={handleLogin}>
         <label htmlFor="username">Username</label>
+      <div id="container">
         <input
           type="text"
           name="username"
@@ -41,8 +59,8 @@ export const LoginForm = ({ login }) => {
           value={state.username}
           autoFocus
           required
-          onChange={handleChange}
-        />
+          onChange={handleChange}          
+        />        
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -52,12 +70,15 @@ export const LoginForm = ({ login }) => {
           required
           onChange={handleChange}
         />
+      </div>
         <button type="submit" disabled={loading}>
           Login
         </button>
+        <button onClick={handleGoogleLogin}>Google Login</button>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
+      
     </React.Fragment>
   );
 };

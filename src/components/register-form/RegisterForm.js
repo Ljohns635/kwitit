@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { regActions } from "../../redux/actions/register";
 import { Loader } from "../loader";
 import "./RegisterForm.css";
+import { logingoogle } from "../../redux/actions/googleAuth";
+import GoogleLogin from "react-google-login";
 
 export const RegisterForm = ({ register }) => {
   const { loading, error } = useSelector((state) => ({
@@ -31,6 +33,20 @@ export const RegisterForm = ({ register }) => {
       ...prevState,
       [inputName]: inputValue,
     }));
+  };
+
+  const handleGoogleLogin = () => {
+    const googleLoginWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank"
+    );
+    googleLoginWindow.window.opener.onmessage = (evt) => {
+      googleLoginWindow.close();
+      if (!evt || !evt.data || !evt.data.token) {
+        return;
+      }
+      dispatch(logingoogle(evt.data));
+    };
   };
 
   return (
@@ -70,8 +86,12 @@ export const RegisterForm = ({ register }) => {
         <button type="submit" disabled={loading}>
           Register
         </button>
+
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+
+        <button onClick={handleGoogleLogin}>Google Login</button>
+
       </form>
     </React.Fragment>
   );
