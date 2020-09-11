@@ -85,21 +85,23 @@ export const GetMessageList = () => {
                 Sent at: {message.createdAt}
                 <Button
                   variant="outline-secondary"
+                  style={{float:"right"}}
                   onClick={(evt) => {
                     handleGetMessage(message.id);
                     setModalShow(true);
                   }}
                 >
-                  Open Message
+                  Open Kwit
                 </Button>{" "}
                 <Button
                   variant="outline-danger"
+                  style={{float:"right"}}
                   onClick={(evt) => {
                     alert("Are you SURE you want to delete. Deleting message will be permanent")
                     handleDelete(message.id);
                   }}
                 >
-                  Delete Message
+                  Delete Kwit
                 </Button>{" "}
                 <MyVerticallyCenteredModal
                   show={modalShow}

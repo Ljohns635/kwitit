@@ -32,7 +32,7 @@ const CreateMessages = () => {
     <React.Fragment>
       <Form style={{width: "77%", float: "right", top: "80px", padding: "30px", position: "absolute", top: "460px", right: "50px"}}>
         <Form.Group controlId="message-box">
-          <Form.Label>Send Message</Form.Label>
+          <Form.Label>Send Kwit</Form.Label>
           <Form.Control
             onChange={handleChange}
             as="textarea"
@@ -42,7 +42,7 @@ const CreateMessages = () => {
           />
         </Form.Group>
         <Button variant="secondary" size="lg" block onClick={handleSend}>
-          Send Message
+          Send Kwit
         </Button>
       </Form>
     </React.Fragment>
