@@ -30,7 +30,7 @@ const CreateMessages = () => {
   // console.log(message);
   return (
     <React.Fragment>
-      <Form style={{width: "77%", float: "right", top: "80px", padding: "30px", position: "absolute", top: "460px", right: "50px"}}>
+      <Form style={{width: "77%", float: "right", top: "80px", padding: "30px", position: "absolute", top: "460px", right: "50px", fontFamily: "Fredoka One"}}>
         <Form.Group controlId="message-box">
           <Form.Label>Send Kwit</Form.Label>
           <Form.Control

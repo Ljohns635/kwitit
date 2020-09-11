@@ -75,7 +75,7 @@ export const GetMessageList = () => {
   return (
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
-      <ListGroup id="List" style={{width: "77%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "50px" }}>
+      <ListGroup id="List" style={{width: "77%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "50px", fontFamily: "Fredoka One"}}>
         <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
@@ -97,7 +97,7 @@ export const GetMessageList = () => {
                   variant="outline-danger"
                   style={{float:"right"}}
                   onClick={(evt) => {
-                    alert("Are you SURE you want to delete. Deleting message will be permanent")
+                    alert("This Message Will Be PERMENATELY Deleted")
                     handleDelete(message.id);
                   }}
                 >
