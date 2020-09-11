@@ -51,6 +51,7 @@ export const LoginForm = ({ login }) => {
     <React.Fragment>
       <form id="login-form" onSubmit={handleLogin}>
         <label htmlFor="username">Username</label>
+      <div id="container">
         <input
           type="text"
           name="username"
@@ -58,8 +59,8 @@ export const LoginForm = ({ login }) => {
           value={state.username}
           autoFocus
           required
-          onChange={handleChange}
-        />
+          onChange={handleChange}          
+        />        
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -69,6 +70,7 @@ export const LoginForm = ({ login }) => {
           required
           onChange={handleChange}
         />
+      </div>
         <button type="submit" disabled={loading}>
           Login
         </button>
@@ -76,6 +78,7 @@ export const LoginForm = ({ login }) => {
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
+      
     </React.Fragment>
   );
 };
