@@ -47,6 +47,7 @@ const CreateMessages = () => {
             <Badge pill variant="secondary">
               Send Kwit
             </Badge>{" "}
+
           </Form.Label>
           <Form.Control
             onChange={handleChange}

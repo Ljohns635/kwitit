@@ -11,21 +11,27 @@ export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
  THUNKS: --> https://github.com/reduxjs/redux-thunk#whats-a-thunk
  If you need access to your store you may call getState()
 */
-export const logingoogle = () => async (dispatch, getState) => {
-  try {
-    dispatch({ type: GOOGLE_LOGIN });
-    const payload = await api.googlelogin();
-    // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+// export const logingoogle = () => async (dispatch, getState) => {
+//   try {
+//     dispatch({ type: GOOGLE_LOGIN });
+//     const payload = await api.googlelogin();
+   
 
-    dispatch({ type: GOOGLE_LOGIN_SUCCESS, payload });
-  } catch (err) {
-    dispatch({
-      type: GOOGLE_LOGIN_FAILURE,
-      payload: err.message,
-    });
+//     dispatch({ type: GOOGLE_LOGIN_SUCCESS, payload });
+//   } catch (err) {
+//     dispatch({
+//       type: GOOGLE_LOGIN_FAILURE,
+//       payload: err.message,
+//     });
+//   }
+// };
+
+export const logingoogle = (data) => {
+  return {
+    type: GOOGLE_LOGIN_SUCCESS,
+    payload: data,
   }
-};
+} 
 
 // export const googleaction = {
 //   logingoogle,
