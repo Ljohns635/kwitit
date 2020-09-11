@@ -41,10 +41,12 @@ class API {
         username,
         password,
       });
+      console.log(result.statusCode);
       return result;
     } catch (err) {
-      helpMeInstructor(err);
-      throw err;
+      // helpMeInstructor(err);
+      // throw err;
+      console.log(err.response);
     }
   }
 

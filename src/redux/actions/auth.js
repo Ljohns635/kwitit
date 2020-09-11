@@ -11,13 +11,14 @@ export const LOGOUT = "AUTH/LOGOUT";
  THUNKS: --> https://github.com/reduxjs/redux-thunk#whats-a-thunk
  If you need access to your store you may call getState()
 */
+
 const login = (credentials) => async (dispatch, getState) => {
   try {
     dispatch({ type: LOGIN });
     const payload = await api.login(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     // console.log({ result })
-
+    console.log(payload);
     dispatch({ type: LOGIN_SUCCESS, payload });
   } catch (err) {
     dispatch({

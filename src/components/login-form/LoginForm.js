@@ -6,9 +6,9 @@ import "./LoginForm.css";
 import { Link } from "react-router-dom";
 
 export const LoginForm = ({ login }) => {
-  const { loading, error } = useSelector((state) => ({
+  const { loading, loginError } = useSelector((state) => ({
     loading: state.auth.loading,
-    error: state.auth.error,
+    loginError: state.auth.loginError,
   }));
 
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ export const LoginForm = ({ login }) => {
         <Link to="/register">Register</Link>
       </form>
       {loading && <Loader />}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
+      {loginError && <p style={{ color: "red" }}></p>}
     </React.Fragment>
   );
 };

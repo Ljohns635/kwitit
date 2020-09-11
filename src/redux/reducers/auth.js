@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   username: "",
   loading: false,
   error: "",
+  loginError: "",
 };
 
 export const authReducer = (state = { ...INITIAL_STATE }, action) => {
@@ -24,9 +25,10 @@ export const authReducer = (state = { ...INITIAL_STATE }, action) => {
         loading: false,
       };
     case LOGIN_FAILURE:
+      console.log(action.payload);
       return {
         ...INITIAL_STATE,
-        error: action.payload,
+        loginError: action.payload,
         loading: false,
       };
     case LOGOUT:
