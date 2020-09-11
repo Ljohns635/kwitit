@@ -8,7 +8,7 @@ import { GetUser } from "../components/getuser/getUser";
 export const ProfileScreen = () => (
   <>
     <MenuContainer />
-    <h2 style={{fontFamily: "Fredoka One"}}>Profile</h2>
+    <h2 style={{ fontFamily: "Fredoka One", marginLeft: "30px" }}>Profile</h2>
 
     <GetUser />
     <br />

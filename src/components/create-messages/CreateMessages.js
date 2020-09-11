@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { createMessage } from "../../redux/actions/createMessages";
 import "./CreateMessages.css";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Button, Badge } from "react-bootstrap";
 
 const CreateMessages = () => {
   const dispatch = useDispatch();
@@ -30,9 +30,24 @@ const CreateMessages = () => {
   // console.log(message);
   return (
     <React.Fragment>
-      <Form style={{width: "77%", float: "right", top: "80px", padding: "30px", position: "absolute", top: "460px", right: "50px", fontFamily: "Fredoka One"}}>
+      <Form
+        style={{
+          width: "77%",
+          float: "right",
+          top: "80px",
+          padding: "30px",
+          position: "absolute",
+          top: "460px",
+          right: "50px",
+          fontFamily: "Fredoka One",
+        }}
+      >
         <Form.Group controlId="message-box">
-          <Form.Label>Send Kwit</Form.Label>
+          <Form.Label>
+            <Badge pill variant="secondary">
+              Send Kwit
+            </Badge>{" "}
+          </Form.Label>
           <Form.Control
             onChange={handleChange}
             as="textarea"

@@ -7,8 +7,7 @@ import { deleteMessages } from "../../redux/actions/deleteMessages";
 import { like } from "../../redux/actions/likes";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
-// import Badge from "react-bootstrap/Badge ";
+
 
 const MyVerticallyCenteredModal = (props) => {
   // console.log(props);

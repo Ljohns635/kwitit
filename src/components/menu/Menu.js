@@ -5,19 +5,14 @@ import { actions } from "../../redux/actions/auth";
 import "./Menu.css";
 import { UserFeed } from "../../screens";
 import { Account } from "../../screens";
-import {
-  Form,
-  FormControl,
-  Button,
- 
-} from "react-bootstrap";
+import { Form, FormControl, Button } from "react-bootstrap";
 
 export const Menu = () => {
   const isAuthenticated = useSelector((state) => !!state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const logout = () => dispatch(actions.logout());
   return (
-    <div id="menu" style={{fontFamily: "Fredoka One"}}>
+    <div id="menu" style={{ fontFamily: "Fredoka One", color: "white" }}>
       <h1>KwitIt!</h1>
 
       <div id="menu-links">
