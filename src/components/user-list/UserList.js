@@ -15,7 +15,7 @@ export default function UserList() {
   // console.log(userListState);
 
   return (
-    <ListGroup id="userlist">
+    <ListGroup id="userlist" style={{width:"77%", position: "absolute", right: "11%"}}>
       <ListGroup.Item as="ul" active>
         {userListState.userList &&
           userListState.userList.map((user) => (

@@ -17,6 +17,7 @@ export const Menu = () => {
       <div id="menu-links">
         {isAuthenticated ? (
           <>
+            <Link to="/">Go Home</Link>
             <Link to="/userfeed" onClick={UserFeed}>
               User Feed
             </Link>
