@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
-import { Link } from "react-router-dom";
+
+import { logingoogle } from "../../redux/actions/googleAuth";
+import GoogleLogin from "react-google-login";
+
 
 export const LoginForm = ({ login }) => {
   const { loading, error } = useSelector((state) => ({
@@ -22,6 +25,20 @@ export const LoginForm = ({ login }) => {
     console.log(event);
     event.preventDefault();
     dispatch(actions.login(state));
+  };
+
+  const handleGoogleLogin = () => {
+    const googleLoginWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank"
+    );
+    googleLoginWindow.window.opener.onmessage = (evt) => {
+      googleLoginWindow.close();
+      if (!evt || !evt.data || !evt.data.token) {
+        return;
+      }
+      dispatch(logingoogle(evt.data));
+    };
   };
 
   const handleChange = (event) => {
@@ -55,6 +72,7 @@ export const LoginForm = ({ login }) => {
         <button type="submit" disabled={loading}>
           Login
         </button>
+        <button onClick={handleGoogleLogin}>Google Login</button>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

@@ -7,7 +7,7 @@ import { deleteMessages } from "../../redux/actions/deleteMessages";
 import { like } from "../../redux/actions/likes";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-// import Badge from "react-bootstrap/Badge ";
+
 
 const MyVerticallyCenteredModal = (props) => {
   // console.log(props);
@@ -74,7 +74,7 @@ export const GetMessageList = () => {
   return (
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
-      <ListGroup id="List">
+      <ListGroup id="List" style={{width: "77%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "50px", fontFamily: "Fredoka One"}}>
         <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
@@ -84,20 +84,23 @@ export const GetMessageList = () => {
                 Sent at: {message.createdAt}
                 <Button
                   variant="outline-secondary"
+                  style={{float:"right"}}
                   onClick={(evt) => {
                     handleGetMessage(message.id);
                     setModalShow(true);
                   }}
                 >
-                  Open Message
+                  Open Kwit
                 </Button>{" "}
                 <Button
                   variant="outline-danger"
+                  style={{float:"right"}}
                   onClick={(evt) => {
+                    alert("This Message Will Be PERMENATELY Deleted")
                     handleDelete(message.id);
                   }}
                 >
-                  Delete Message
+                  Delete Kwit
                 </Button>{" "}
                 <MyVerticallyCenteredModal
                   show={modalShow}

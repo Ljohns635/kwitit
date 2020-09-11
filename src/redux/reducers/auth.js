@@ -1,11 +1,11 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, GOOGLE_LOGIN_SUCCESS } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
   isAuthenticated: "",
   username: "",
   loading: false,
-  error: "",
+  error: "Incorrect Credentials",
 };
 
 export const authReducer = (state = { ...INITIAL_STATE }, action) => {
@@ -33,6 +33,13 @@ export const authReducer = (state = { ...INITIAL_STATE }, action) => {
       return {
         ...INITIAL_STATE,
       };
+    case GOOGLE_LOGIN_SUCCESS:
+      return{
+        ...INITIAL_STATE,
+        isAuthenticated: action.payload.token,
+        username: action.payload.username,
+        loading: false,
+      }
     default:
       return state;
   }
