@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getuser } from "../../redux/actions/getusers";
 import { Loader } from "../loader";
 import { Card, Button } from "react-bootstrap";
+import { SlideShow } from "./SlideShow";
 
-// import "./GetUser";
 
 export const GetUser = () => {
   const { loading, error, userinfo, username } = useSelector((state) => ({
@@ -22,10 +22,14 @@ export const GetUser = () => {
   console.log(userinfo);
   console.log(userinfo.displayName);
   console.log(userinfo.updatedAt);
-
+ 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
+    <div style={{float: "right", width: "77%", margin: "30px"}}>
+      <SlideShow />
+    </div>
+
+      <Card style={{ width: "18rem", padding: "5px", margin: "30px", fontFamily: "Fredoka One"}}>
         <Card.Img
           variant="top"
           src="https://frodsham.gov.uk/wp-content/uploads/2019/05/profile-photo-placeholder.jpg"
@@ -39,7 +43,6 @@ export const GetUser = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat
           </Card.Text>
-          {/* <Button variant="primary">Go somewhere</Button> */}
         </Card.Body>
       </Card>
     </>

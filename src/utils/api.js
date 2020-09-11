@@ -59,8 +59,8 @@ class API {
 
   async googlelogin() {
     try {
-      const result = await this.axiosInstance.post("/auth/google/login");
-
+      const result = await this.axiosInstance.get("/auth/google/login");
+      console.log("request works");
       return result;
     } catch (err) {
       helpMeInstructor(err);

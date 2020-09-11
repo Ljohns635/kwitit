@@ -1,15 +1,13 @@
 import React from "react";
 import { MenuContainer } from "../components";
-// import CreateMessages from "../components/create-messages/CreateMessages";
-import { Link } from "react-router-dom";
-// import { GetMessageList } from "../components";
 import { DeleteUser } from "../components/delete-user/DeleteUser";
 
 export const Account = () => (
   <>
+  <div id="color" style={{backgroundColor: "#EFFEE5"}}>
     <MenuContainer />
-    <Link to="/">Go Home</Link>
-    <h2>Account Information</h2>
+    <h2 style={{fontFamily: "Fredoka One", position: "relative", left: "38%", margin: "20px"}}>Account Information</h2>
     <DeleteUser />
+    </div>
   </>
 );
