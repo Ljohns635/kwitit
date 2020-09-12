@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { actions } from "../../redux/actions/auth";
 import { Loader } from "../loader";
 import "./LoginForm.css";
-
+import { Link } from "react-router-dom";
 import { logingoogle } from "../../redux/actions/googleAuth";
 import GoogleLogin from "react-google-login";
 
@@ -49,7 +49,7 @@ export const LoginForm = ({ login }) => {
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
+      <form id="login-form" onSubmit={handleLogin} style={{position: "absolute", right: "40%", bottom: "40%"}}>
         <label htmlFor="username">Username</label>
       <div id="container">
         <input
@@ -75,6 +75,7 @@ export const LoginForm = ({ login }) => {
           Login
         </button>
         <button onClick={handleGoogleLogin}>Google Login</button>
+        <Link style={{color:"white", opacity: "0.8"}} to="/register">Register</Link>
       </form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
