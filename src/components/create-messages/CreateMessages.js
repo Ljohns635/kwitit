@@ -32,22 +32,18 @@ const CreateMessages = () => {
     <React.Fragment>
       <Form
         style={{
-          width: "77%",
+          width: "60%",
           float: "right",
-          top: "80px",
-          padding: "30px",
+          padding: "1%",
           position: "absolute",
-          top: "460px",
-          right: "50px",
+          top: "50%",
+          right: "8%",
           fontFamily: "Fredoka One",
         }}
       >
         <Form.Group controlId="message-box">
           <Form.Label>
-            <Badge style={{backgroundColor: "#A5FA70"}}>
-              Send Kwit
-            </Badge>{" "}
-
+            <Badge style={{ backgroundColor: "#A5FA70" }}>Send Kwit</Badge>{" "}
           </Form.Label>
           <Form.Control
             onChange={handleChange}
@@ -57,7 +53,12 @@ const CreateMessages = () => {
             value={message.text}
           />
         </Form.Group>
-        <Button style={{backgroundColor: "#A5FA70"}} size="lg" block onClick={handleSend}>
+        <Button
+          style={{ backgroundColor: "#A5FA70", color: "white" }}
+          size="lg"
+          block
+          onClick={handleSend}
+        >
           Send Kwit
         </Button>
       </Form>
