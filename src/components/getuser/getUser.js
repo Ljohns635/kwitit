@@ -24,12 +24,13 @@ export const GetUser = () => {
   console.log(userinfo.updatedAt);
  
   return (
+    //made Changes
     <>
-    <div style={{float: "right", width: "77%", margin: "30px"}}>
+    <div style={{float: "right", width: "58%", position:"absolute", right: "7%", margin: "3%"}}>
       <SlideShow />
     </div>
 
-      <Card style={{ width: "18rem", padding: "5px", margin: "30px", fontFamily: "Fredoka One"}}>
+      <Card style={{ width: "18rem", position: "absolute", top: "8%", padding: "1%", margin: "6%", fontFamily: "Fredoka One"}}>
         <Card.Img
           variant="top"
           src="https://frodsham.gov.uk/wp-content/uploads/2019/05/profile-photo-placeholder.jpg"
