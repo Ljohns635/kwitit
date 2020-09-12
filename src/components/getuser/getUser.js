@@ -30,7 +30,7 @@ export const GetUser = () => {
       <SlideShow />
     </div>
 
-      <Card style={{ width: "18rem", position: "absolute", top: "8%", padding: "1%", margin: "6%", fontFamily: "Fredoka One"}}>
+      <Card style={{ width: "18rem", position: "absolute", top: "7%", padding: "1%", margin: "6%", fontFamily: "Fredoka One"}}>
         <Card.Img
           variant="top"
           src="https://frodsham.gov.uk/wp-content/uploads/2019/05/profile-photo-placeholder.jpg"

@@ -75,7 +75,7 @@ export const GetMessageList = () => {
     // made changes
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
-      <ListGroup id="List" style={{width: "60%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "8%", fontFamily: "Fredoka One"}}>
+      <ListGroup id="List" style={{width: "66%", float: "right", padding: "4%",position: "absolute", top: "80%", right: "6%", fontFamily: "Fredoka One"}}>
         <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
