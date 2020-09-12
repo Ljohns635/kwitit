@@ -72,6 +72,7 @@ export const GetMessageList = () => {
     dispatch(like(messageId));
   };
   return (
+    // made changes
     <>
       <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
       <ListGroup id="List" style={{width: "60%", float: "right", padding: "30px",position: "absolute", top: "660px", right: "8%", fontFamily: "Fredoka One"}}>

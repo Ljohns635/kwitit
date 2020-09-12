@@ -24,6 +24,7 @@ export const GetUser = () => {
   console.log(userinfo.updatedAt);
  
   return (
+    //made Changes
     <>
     <div style={{float: "right", width: "58%", position:"absolute", right: "7%", margin: "3%"}}>
       <SlideShow />
