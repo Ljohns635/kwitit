@@ -5,6 +5,7 @@ import { Loader } from "../loader";
 import "./RegisterForm.css";
 import { logingoogle } from "../../redux/actions/googleAuth";
 import GoogleLogin from "react-google-login";
+import { Button } from "react-bootstrap"
 
 export const RegisterForm = ({ register }) => {
   const { loading, error } = useSelector((state) => ({
@@ -51,7 +52,8 @@ export const RegisterForm = ({ register }) => {
 
   return (
     <React.Fragment>
-      <form id="register-form" onSubmit={handleRegister}>
+      <form id="register-form" onSubmit={handleRegister} >
+      <h3 style={{fontFamily: "Fredoka One", color:"white", position: "relative", left: "35%"}}>Sign in</h3>
         {/* <label htmlFor="username">Username</label> */}
         <input
           type="text"
@@ -83,16 +85,14 @@ export const RegisterForm = ({ register }) => {
           onChange={handleChange}
           className="inputtest"
         />
-        <button type="submit" disabled={loading}>
-          Register
-        </button>
-
+       
+        <Button variant="light" type="submit" disabled={loading} >Login</Button>
+        <br />
+        
+        <Button variant="light" type="submit" disabled={loading} onClick={handleGoogleLogin} >Google Login</Button>
+      </form>
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
-
-        <button onClick={handleGoogleLogin}>Google Login</button>
-
-      </form>
     </React.Fragment>
   );
 };

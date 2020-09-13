@@ -1,15 +1,16 @@
 .registername {
-
-    border: 2px solid black;
-    width: 350px;
-    height: 300px;
-    margin: 0 auto;
-    padding: 10px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 2px solid white;
+  width: 350px;
+  height: 390px;
+  margin: 0 auto;
+  padding: 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  position: relative;
+  top: 240px;
 }
 
 .registerscreen {
-    background-color: coral;
+  background-color: coral;
 }
