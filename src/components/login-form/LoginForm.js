@@ -6,6 +6,7 @@ import "./LoginForm.css";
 import { Link } from "react-router-dom";
 import { logingoogle } from "../../redux/actions/googleAuth";
 import GoogleLogin from "react-google-login";
+import { Button } from "react-bootstrap"
 
 
 export const LoginForm = ({ login }) => {
@@ -49,8 +50,9 @@ export const LoginForm = ({ login }) => {
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin} style={{position: "absolute", right: "40%", bottom: "40%"}}>
-        <label htmlFor="username">Username</label>
+      <form id="login-form" onSubmit={handleLogin} style={{position: "absolute", right: "40%", bottom: "40%", border: "2px solid white", padding: "4%", backgroundColor: "#A5FA70", boxShadow: "5px 10px rgb(255,255,255, 0.6)"}}>
+        <h3 style={{fontFamily: "Fredoka One", color:"white", position: "relative", left: "25%"}}>Sign in</h3>
+        <label htmlFor="username"></label>
       <div id="container">
         <input
           type="text"
@@ -61,7 +63,7 @@ export const LoginForm = ({ login }) => {
           required
           onChange={handleChange}          
         />        
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
           type="password"
           name="password"
@@ -71,15 +73,20 @@ export const LoginForm = ({ login }) => {
           onChange={handleChange}
         />
       </div>
-        <button type="submit" disabled={loading}>
+        <br />
+      <Button variant="light" type="submit" disabled={loading} >Login</Button>
+        {/* <button type="submit" disabled={loading}>
           Login
-        </button>
-        <button onClick={handleGoogleLogin}>Google Login</button>
-        <Link style={{color:"white", opacity: "0.8"}} to="/register">Register</Link>
+        </button> */}
+        <br />
+        <Button variant="light" type="submit" disabled={loading} onClick={handleGoogleLogin} >Google Login</Button>
+        {/* <button onClick={handleGoogleLogin}>Google Login</button> */}
+        <Link to="/register">Register</Link>
       </form>
+      <div id="loader" style={{position:"absolute", right: "43%", top: "63%"}}>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
-      
+      </div>
     </React.Fragment>
   );
 };

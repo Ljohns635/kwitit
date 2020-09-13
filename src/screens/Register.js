@@ -7,15 +7,14 @@ import "./register.css";
 
 export const RegisterScreen = () => (
 <>
-
-    <MenuContainer />
-    <h2>Your favorite microblogging platform</h2>
-
- 
-    <div className="registername">
-      <RegisterContainer />
-      <Link to="/">Home</Link>
-      </div>
+<div id="border" style={{backgroundImage: "url(https://www.psdgraphics.com/file/2018/bright-light-rays-background.jpg)", backgroundSize: "cover", position: "fixed", minHeight: "100%", minWidth: "100%", backgroundPosition: "center" }}>
+  <MenuContainer />
+  
+  <div className="registername">
+     <RegisterContainer />
+     <Link to="/">Home</Link>
+  </div>
+</div>
 </>
 
 )
