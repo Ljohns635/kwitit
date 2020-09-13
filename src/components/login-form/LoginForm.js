@@ -50,7 +50,7 @@ export const LoginForm = ({ login }) => {
 
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin} style={{position: "absolute", right: "40%", bottom: "40%", border: "2px solid white", padding: "4%", backgroundColor: "#A5FA70", boxShadow: "5px 10px rgb(255,255,255, 0.6)"}}>
+      <form id="login-form" onSubmit={handleLogin} style={{position: "absolute", right: "40%", bottom: "25%", border: "2px solid white", padding: "4%", backgroundColor: "#A5FA70", boxShadow: "5px 10px rgb(255,255,255, 0.6)"}}>
         <h3 style={{fontFamily: "Fredoka One", color:"white", position: "relative", left: "25%"}}>Sign in</h3>
         <label htmlFor="username"></label>
       <div id="container">
@@ -62,7 +62,8 @@ export const LoginForm = ({ login }) => {
           autoFocus
           required
           onChange={handleChange}          
-        />        
+        /> 
+              
         <label htmlFor="password"></label>
         <input
           type="password"
