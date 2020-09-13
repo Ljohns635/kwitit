@@ -4,7 +4,7 @@ import { DeleteUser } from "../components/delete-user/DeleteUser";
 
 export const Account = () => (
   <>
-  <div id="color" style={{backgroundColor: "#EFFEE5"}}>
+  <div id="color" style={{backgroundColor: "#EFFEE5", height: "100vh"}}>
     <MenuContainer />
     <h2 style={{fontFamily: "Fredoka One", position: "relative", left: "38%", margin: "20px"}}>Account Information</h2>
     <DeleteUser />

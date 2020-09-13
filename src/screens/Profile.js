@@ -8,7 +8,7 @@ import { GetUser } from "../components/getuser/getUser";
 export const ProfileScreen = () => (
   <>
 {/* made changes */}
-  <div id="box" style={{backgroundColor: "#EFFEE5"}}>
+  <div id="box" style={{backgroundColor: "#EFFEE5", height: "702rem"}}>
     <MenuContainer />
     <h2 style={{ fontFamily: "Fredoka One", position: "relative", left: "48%", margin: "12px"}}>Profile</h2>
 

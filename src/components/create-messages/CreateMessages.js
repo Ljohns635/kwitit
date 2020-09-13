@@ -33,11 +33,11 @@ const CreateMessages = () => {
     <React.Fragment>
       <Form
         style={{
-          width: "60%",
+          width: "61%",
           float: "right",
           padding: "1%",
           position: "absolute",
-          top: "50%",
+          top: "55%",
           right: "8%",
           fontFamily: "Fredoka One",
         }}
