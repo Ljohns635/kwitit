@@ -2,7 +2,6 @@ import {
   REGISTER,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
-  // REG_LOGOUT,
   DELETE_USER,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
@@ -14,7 +13,6 @@ import {
   USERLIST_FAILURE,
 } from "../actions";
 
-// INITIAL STATE
 const INITIAL_STATE = {
   userList: [],
   isAuthenticated: "",
@@ -38,7 +36,6 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         ...INITIAL_STATE,
         isAuthenticated: token,
         username,
-        // displayName,
         loading: false,
       };
     case REGISTER_FAILURE:
@@ -47,10 +44,6 @@ export const usersReducer = (state = { ...INITIAL_STATE }, action) => {
         error: action.payload,
         loading: false,
       };
-    // case REG_LOGOUT:
-    //   return {
-    //     ...INITIAL_STATE,
-    //   };
     case DELETE_USER:
       return {
         ...INITIAL_STATE,

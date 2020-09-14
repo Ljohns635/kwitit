@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMessageList } from "../../redux/actions/messageList";
 import { ListGroup } from "react-bootstrap";
@@ -39,17 +39,13 @@ const MyVerticallyCenteredModal = (props) => {
 };
 
 export const GetMessageList = () => {
-  const { loading, error, messages } = useSelector((state) => ({
-    loading: state.auth.loading,
-    error: state.auth.error,
+  const { messages } = useSelector((state) => ({
     messages: state.messages.list,
   }));
 
   const dispatch = useDispatch();
 
-  // const [message, setMessage] = useState({
-  //   messagesId: "",
-  // });
+ 
   useEffect(() => {
     dispatch(getMessageList());
   }, []);
@@ -74,14 +70,12 @@ export const GetMessageList = () => {
   return (
     // made changes
     <>
-      <h1>{/* <Badge variant="secondary">Messagelist</Badge> */}</h1>
       <ListGroup id="List" style={{width: "66%", float: "right", padding: "4%",position: "absolute", top: "80%", right: "6%", fontFamily: "Fredoka One"}}>
         <ListGroup.Item as="ul">
           {messages &&
             messages.map((message) => (
               <ListGroup.Item as="li" action key={message.id}>
                 <strong>{message.username}</strong> <br />
-                {/* <p key={message.id} /> */}
                 Sent at: {message.createdAt}
                 <Button
                   variant="outline-secondary"

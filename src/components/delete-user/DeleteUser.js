@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getuser } from "../../redux/actions/getusers";
-import { Loader } from "../loader";
-import { Card, Button, OverlayTrigger } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { deleteuser } from "../../redux/actions/deleteusers";
 
 // import "./DeleteUser.css";
 
 export const DeleteUser = () => {
-  const { loading, error, userinfo, username } = useSelector((state) => ({
-    loading: state.users.loading,
-    error: state.users.error,
+  const { userinfo, username } = useSelector((state) => ({
     userinfo: state.users.user,
     username: state.auth.username,
   }));
