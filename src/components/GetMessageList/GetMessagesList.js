@@ -74,7 +74,7 @@ export const GetMessageList = () => {
     // made changes
     <>
       <ListGroup id="List" style={{width: "66%", float: "right", padding: "4%",position: "absolute", top: "80%", right: "6%", fontFamily: "Fredoka One"}}>
-        <ListGroup.Item as="ul">
+        <ListGroup.Item as="ul" style={{backgroundColor: "#A5FA70"}} >
           {messages &&
             messages.map((message) => (
               <ListGroup.Item as="li" action key={message.id}>
