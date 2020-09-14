@@ -22,7 +22,7 @@ const MyVerticallyCenteredModal = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Message Opened
+            Kwit Opened
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -52,10 +52,13 @@ export const GetMessageList = () => {
 
   //Getting a single message
   const handleGetMessage = (messageId) => {
-    // console.log(messageId);
+    console.log(messageId);
     dispatch(getMessage(messageId));
   };
   const [modalShow, setModalShow] = React.useState(false);
+  const [modalUsername, setModalUsername] = React.useState("")
+  const [modalCreatedAt, setCreatedAt] = React.useState("")
+  const [modalText, setText] = React.useState("")
   // console.log(messages);
 
   //Deleting a single messsage
@@ -77,12 +80,16 @@ export const GetMessageList = () => {
               <ListGroup.Item as="li" action key={message.id}>
                 <strong>{message.username}</strong> <br />
                 Sent at: {message.createdAt}
+                <p>Kwit: {message.text}</p>
                 <Button
                   variant="outline-secondary"
                   style={{float:"right"}}
                   onClick={(evt) => {
                     handleGetMessage(message.id);
                     setModalShow(true);
+                    setModalUsername(message.username)
+                    setCreatedAt(message.createdAt)
+                    setText(message.text)
                   }}
                 >
                   Open Kwit
@@ -99,9 +106,9 @@ export const GetMessageList = () => {
                 </Button>{" "}
                 <MyVerticallyCenteredModal
                   show={modalShow}
-                  user={message.username}
-                  time={message.createdAt}
-                  text={message.text}
+                  user={modalUsername}
+                  time={modalCreatedAt}
+                  text={modalText}
                   onHide={() => setModalShow(false)}
                 />
                 <Button

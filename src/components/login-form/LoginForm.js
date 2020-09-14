@@ -81,7 +81,7 @@ export const LoginForm = ({ login }) => {
         <br />
         <Button variant="light" type="submit" disabled={loading} onClick={handleGoogleLogin} >Google Login</Button>
         {/* <button onClick={handleGoogleLogin}>Google Login</button> */}
-        <Link to="/register">Register</Link>
+        <Link to="/register"><span>Sign up here!</span> Register</Link>
       </form>
       <div id="loader" style={{position:"absolute", right: "43%", top: "63%"}}>
       {loading && <Loader />}
