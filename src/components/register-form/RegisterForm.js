@@ -4,7 +4,6 @@ import { regActions } from "../../redux/actions/register";
 import { Loader } from "../loader";
 import "./RegisterForm.css";
 import { logingoogle } from "../../redux/actions/googleAuth";
-import GoogleLogin from "react-google-login";
 import { Button } from "react-bootstrap"
 
 export const RegisterForm = ({ register }) => {
@@ -54,7 +53,7 @@ export const RegisterForm = ({ register }) => {
     <React.Fragment>
       <form id="register-form" onSubmit={handleRegister} >
       <h3 style={{fontFamily: "Fredoka One", color:"white", position: "relative", left: "35%"}}>Sign in</h3>
-        {/* <label htmlFor="username">Username</label> */}
+        
         <input
           type="text"
           name="username"
@@ -65,7 +64,7 @@ export const RegisterForm = ({ register }) => {
           onChange={handleChange}
           className="inputtest userinput"
         />
-        {/* <label htmlFor="displayName">Display Name</label> */}
+        
         <input
           type="text"
           name="displayName"
@@ -75,7 +74,7 @@ export const RegisterForm = ({ register }) => {
           onChange={handleChange}
           className="inputtest"
         />
-        {/* <label htmlFor="password">Password</label> */}
+        
         <input
           type="password"
           name="password"

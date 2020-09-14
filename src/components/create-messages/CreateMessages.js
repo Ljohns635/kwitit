@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createMessage } from "../../redux/actions/createMessages";
-import "./CreateMessages.css";
 import Form from "react-bootstrap/Form";
 import { Button, Badge } from "react-bootstrap";
 
