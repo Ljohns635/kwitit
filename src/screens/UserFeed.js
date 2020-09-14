@@ -10,11 +10,6 @@ export const UserFeed = () => (
 
     <h2 style={{fontFamily: "Fredoka One"}}>User List</h2>
     <UserList />
-    {/* <h2>Message Feed</h2>
-    <CreateMessages />
-    <br />
-    <br />
-    <GetMessageList /> */}
     </div>
   </>
 );

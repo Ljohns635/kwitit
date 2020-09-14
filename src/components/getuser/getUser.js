@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getuser } from "../../redux/actions/getusers";
-import { Loader } from "../loader";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { SlideShow } from "./SlideShow";
 
 
 export const GetUser = () => {
-  const { loading, error, userinfo, username } = useSelector((state) => ({
-    loading: state.users.loading,
-    error: state.users.error,
+  const { userinfo, username } = useSelector((state) => ({
     userinfo: state.users.user,
     username: state.auth.username,
   }));
@@ -24,7 +21,6 @@ export const GetUser = () => {
   console.log(userinfo.updatedAt);
  
   return (
-    //made Changes
     <>
     <div style={{float: "right", width: "58%", position:"absolute", right: "7%", margin: "3%"}}>
       <SlideShow />

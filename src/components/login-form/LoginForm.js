@@ -5,7 +5,6 @@ import { Loader } from "../loader";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
 import { logingoogle } from "../../redux/actions/googleAuth";
-import GoogleLogin from "react-google-login";
 import { Button } from "react-bootstrap"
 
 
