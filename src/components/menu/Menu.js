@@ -36,16 +36,9 @@ export const Menu = () => {
             <Link to="/" onClick={logout}>
               Logout
 
-            </Link>            
+            </Link>      
 
-            <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-              />
-              <Button variant="outline-light">Search</Button>
-            </Form>
+            
 
           </>
         ) : null}
